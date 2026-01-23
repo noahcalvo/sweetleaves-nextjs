@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getWPData } from '../lib/wp';
+import WaxCarousel from "./shop/components/WaxCarousel";
 
 const HOMEPAGE_QUERY = `
 query Home {
@@ -10,6 +11,7 @@ query Home {
       body1
       subheader2
       body2
+      showcarousel
     }
   }
 }
@@ -21,6 +23,7 @@ export default async function Home() {
   let body1 = '';
   let subheader2 = '';
   let body2 = '';
+  let showCarousel = false;
   try {
     const data = await getWPData(HOMEPAGE_QUERY);
     console.log('Rendering homepage with header:', data);
@@ -30,6 +33,7 @@ export default async function Home() {
     body1 = fields?.body1 ?? '';
     subheader2 = fields?.subheader2 ?? '';
     body2 = fields?.body2 ?? '';
+    showCarousel = fields?.showcarousel ?? false;
   } catch (e) {
     console.error('Failed fetching WP ACF fields', e);
   }
@@ -69,6 +73,13 @@ export default async function Home() {
                   <div className="flex prose-lg text-zinc-700 dark:text-zinc-300 items-center text-left">{body2}</div>
                 </div>
               ) : null}
+            </section>
+          ) : null}
+
+          { showCarousel ? (
+            <section className="pt-8">
+              <h2 className="mt-2 text-lg text-zinc-600 dark:text-zinc-400">Our Products</h2>
+              <WaxCarousel />
             </section>
           ) : null}
         </div>
