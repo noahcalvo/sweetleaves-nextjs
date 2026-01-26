@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { track } from "../../lib/analytics/alpineiq";
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
@@ -13,7 +14,13 @@ export default function Nav() {
 
                 <nav className="hidden sm:flex space-x-4">
                     <Link href="/" className="text-sm text-zinc-700 hover:text-black dark:text-zinc-300 px-4">Home</Link>
-                    <Link href="/shop" className="text-sm text-zinc-700 hover:text-black dark:text-zinc-300">Shop</Link>
+                    <Link
+                        href="/shop"
+                        onClick={() => track("cta_click", { location: "nav", label: "Shop", href: "/shop" })}
+                        className="text-sm text-zinc-700 hover:text-black dark:text-zinc-300"
+                    >
+                        Shop
+                    </Link>
                 </nav>
 
                 <div className="sm:hidden">
@@ -37,7 +44,13 @@ export default function Nav() {
                 <div className="sm:hidden border-t border-zinc-100 dark:border-zinc-900 bg-white dark:bg-black">
                     <div className="px-6 py-4 space-y-3">
                         <Link href="/" className="block text-base text-zinc-700 dark:text-zinc-300">Home</Link>
-                        <Link href="/shop" className="block text-base text-zinc-700 dark:text-zinc-300">Shop</Link>
+                        <Link
+                            href="/shop"
+                            onClick={() => track("cta_click", { location: "nav", label: "Shop", href: "/shop" })}
+                            className="block text-base text-zinc-700 dark:text-zinc-300"
+                        >
+                            Shop
+                        </Link>
                     </div>
                 </div>
             )}

@@ -12,7 +12,8 @@ export default function DutchieEmbed() {
     const s = document.createElement("script");
     s.id = "dutchie--embed__script";
     s.src = "https://dutchie.com/api/v2/embedded-menu/65ae80f7dbecc7000934725c.js";
-    s.async = false;
+    s.async = true;
+    s.defer = true;
     rootRef.current.appendChild(s);
   }, []);
 

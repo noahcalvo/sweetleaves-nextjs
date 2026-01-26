@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Sweetleaves POC frontend built with Next.js (App Router), WPGraphQL, and Dutchie embeds.
 
 ## Getting Started
 
-First, run the development server:
+First, set required environment variables:
+
+```
+WP_GRAPHQL_ENDPOINT=https://your-wp-site/graphql
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_AGE_GATE_TTL_HOURS=12
+WP_REVALIDATE_SECONDS=300
+WP_HOME_REVALIDATE_SECONDS=300
+WP_SHOP_REVALIDATE_SECONDS=300
+NEXT_PUBLIC_ALPINEIQ_SCRIPT_SRC=
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
