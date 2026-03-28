@@ -12,6 +12,16 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-dark-green:    #0F2D25;
+  --color-dark-sage:     #24433B;
+  --color-sage:          #6D7E76;
+  --color-ivory:         #E0D7B7;
+  --color-parchment:     #F7F4EE;
+  --color-almost-black:  #211A1D;
+  --height-sign-in-modal: 600px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
