@@ -63,7 +63,14 @@ Three new stub routes, each a minimal server component:
 
 ## Logo
 
-Use an `<img>` tag with `src="/logo-placeholder.svg"` and `alt="sweetleaves"` until the real SVG asset is available. A simple text-based SVG placeholder will be created at `public/logo-placeholder.svg`.
+Use Next.js `<Image>` with the real SVG assets — no placeholder needed.
+
+- **Desktop and mobile nav** (dark green background): `Sweetleaves_Logo_Ivory_Horizontal_A.svg`
+  - Path: `/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_Ivory_Horizontal_A.svg`
+
+The horizontal layout suits the nav bar. The Ivory colorway is legible on `bg-dark-green`.
+
+All logo assets are in `public/logos-and-icons/` with variants for color (`Ivory`, `White`, `DarkGreen`, `DarkSage`, `Sage`, `Black`, `FullColor`), layout (`logo-hotizontal`, `logo-stacked`), and arrangement (`_A`, `_B`). Use the appropriate variant if the logo appears on other backgrounds elsewhere in the app.
 
 ## Styling
 
