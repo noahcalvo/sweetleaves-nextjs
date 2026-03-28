@@ -9,7 +9,7 @@ export default function DesktopNav() {
       <Link href="/">
         <Image
           src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_Ivory_Horizontal_A.svg"
-          alt="sweetleaves"
+          alt="Sweetleaves"
           width={160}
           height={40}
           priority
