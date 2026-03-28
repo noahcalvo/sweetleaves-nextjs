@@ -3,47 +3,50 @@ _Date: 2026-03-28_
 
 ## Overview
 
-Rebuild the existing `Nav.tsx` into a server-first navbar with two isolated client components for the only interactive elements: the mobile hamburger menu and the sign-in modal.
+Rebuild the existing `Nav.tsx` into a thin orchestrator that composes two designated layout components — one for desktop, one for mobile — plus a shared sign-in modal client component.
 
 ## Component Architecture
 
 ```
 app/components/
-  Nav.tsx              — server component, full nav shell (static)
-  HamburgerButton.tsx  — client component, mobile toggle + overlay
-  SignInButton.tsx     — client component, sign-in modal + iframe
+  Nav.tsx              — server component, thin orchestrator (renders DesktopNav + MobileNav)
+  DesktopNav.tsx       — server component, desktop shell + static links
+  MobileNav.tsx        — client component, hamburger toggle + mobile overlay
+  SignInButton.tsx     — client component, sign-in modal + iframe (shared)
 ```
 
-`Nav.tsx` is the only component rendered in the root layout. CSS breakpoints handle the responsive difference between desktop and mobile layouts. No two-component/breakpoint switching.
+`Nav.tsx` is the only component rendered in the root layout. CSS breakpoints (`hidden md:flex` / `flex md:hidden`) control which layout is visible.
 
 ## Nav.tsx (Server Component)
 
-Sticky, full-width bar with `bg-dark-green`.
+Thin orchestrator. Renders `<DesktopNav />` and `<MobileNav />` side by side. No logic of its own.
 
-**Desktop layout (md+):** Three zones via flexbox:
-- Left: logo `<img>` placeholder (`alt="sweetleaves"`) — swap for SVG asset when ready
-- Center: Next.js `<Link>` elements for ABOUT, LEARN, REWARDS — `text-parchment uppercase tracking-wide`
-- Right: `<SignInButton />` then SHOP NOW — ivory pill button linking to `/shop`
+## DesktopNav.tsx (Server Component)
 
-**Mobile layout (<md):**
-- Left: logo placeholder
-- Right: `<HamburgerButton />` — renders as hamburger icon, manages the overlay internally
+Sticky, full-width bar with `bg-dark-green`. Hidden below `md`.
 
-## HamburgerButton.tsx (Client Component)
+Three zones via flexbox:
+- **Left:** logo `<img>` placeholder (`alt="sweetleaves"`) — swap for SVG asset when ready
+- **Center:** Next.js `<Link>` elements for ABOUT, LEARN, REWARDS — `text-parchment uppercase tracking-wide`
+- **Right:** `<SignInButton />` then SHOP NOW — ivory pill button (`bg-ivory text-dark-green rounded-full`) linking to `/shop`
 
-Owns `isOpen` boolean state. Renders:
-- Hamburger icon (≡) when closed, X when open
-- When open: full-screen `bg-dark-green` overlay containing:
-  - Logo + X close button at top
-  - SHOP NOW ivory pill button (links to `/shop`)
-  - ABOUT, LEARN, REWARDS stacked as Next.js `<Link>` elements
-  - `<SignInButton />` at bottom
+## MobileNav.tsx (Client Component)
+
+Visible below `md`. Owns `isOpen` boolean state.
+
+**Closed state:** logo placeholder left, hamburger icon (≡) right.
+
+**Open state:** full-screen `bg-dark-green` overlay containing:
+- Logo + X close button at top
+- SHOP NOW ivory pill button (links to `/shop`)
+- ABOUT, LEARN, REWARDS stacked as Next.js `<Link>` elements
+- `<SignInButton />` at bottom
 
 Closing the overlay resets `isOpen` to false.
 
 ## SignInButton.tsx (Client Component)
 
-Owns `isModalOpen` boolean state. Renders:
+Shared between DesktopNav and MobileNav. Owns `isModalOpen` boolean state. Renders:
 - A SIGN IN button (person icon + label, `text-parchment`)
 - When open: a modal overlay with an `<iframe>` pointing to `https://lab.alpineiq.com/wallet/3585`
 - Modal is closeable via an X button or clicking the backdrop
@@ -60,14 +63,14 @@ Three new stub routes, each a minimal server component:
 
 ## Logo
 
-Use an `<img>` tag with `src="/logo-placeholder.svg"` and `alt="sweetleaves"` until the real SVG asset is available. A simple inline SVG placeholder (text-based) will be created at `public/logo-placeholder.svg`.
+Use an `<img>` tag with `src="/logo-placeholder.svg"` and `alt="sweetleaves"` until the real SVG asset is available. A simple text-based SVG placeholder will be created at `public/logo-placeholder.svg`.
 
 ## Styling
 
 All colors use the custom Tailwind tokens defined in `tailwind.config.cjs`:
 - Nav background: `bg-dark-green`
 - Link text: `text-parchment`
-- SHOP NOW button: `bg-ivory text-dark-green` rounded-full
+- SHOP NOW button: `bg-ivory text-dark-green rounded-full`
 - SIGN IN: `text-parchment` with a person icon
 
 ## Out of Scope
