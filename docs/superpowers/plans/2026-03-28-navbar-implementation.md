@@ -129,17 +129,17 @@ export default function SignInButton() {
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-almost-black/60"
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="relative bg-white rounded-lg w-full max-w-md h-[600px]"
+            className="relative bg-ivory rounded-lg w-full max-w-md h-sign-in-modal"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setIsOpen(false)}
               aria-label="Close"
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+              className="absolute top-3 right-3 text-sage hover:text-almost-black"
             >
               {/* TODO: replace ✕ with close icon asset from public/ */}
               <span aria-hidden="true">✕</span>
