@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SignInButton from "./SignInButton";
@@ -8,6 +8,11 @@ import { NAV_LINKS } from "./links";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("overflow-hidden", isOpen);
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isOpen]);
 
   return (
     <header className="flex md:hidden w-full bg-dark-green sticky top-0 z-40 items-center justify-between px-6 py-4">
