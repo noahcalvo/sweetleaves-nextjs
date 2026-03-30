@@ -5,6 +5,7 @@ import AgeGate from "./components/AgeGate";
 import AlpineIQProvider from "./components/AlpineIQProvider";
 import PageViewTracker from "./components/PageViewTracker";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -65,11 +66,7 @@ export default async function RootLayout({
 
             <main className="flex-1 w-full">{children}</main>
 
-            <footer className="w-full border-t border-zinc-200 dark:border-zinc-800">
-              <div className="mx-auto w-full max-w-3xl px-6 py-6 text-sm text-zinc-600 dark:text-zinc-400">
-                &copy; {new Date().getFullYear()} SweetLeaves
-              </div>
-            </footer>
+            <Footer />
           </div>
         </AgeGate>
       </body>
