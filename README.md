@@ -1,4 +1,4 @@
-Sweetleaves POC frontend built with Next.js (App Router), WPGraphQL, and Dutchie embeds.
+Sweetleaves POC frontend built with Next.js (App Router), WPGraphQL, and Dutchie embeds
 
 ## Getting Started
 
