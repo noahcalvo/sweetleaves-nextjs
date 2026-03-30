@@ -23,14 +23,14 @@ export default function RewardsPage() {
         priority={false}
       />
 
-      <div className="relative z-10 max-w-[1365px] mx-auto px-6 py-8 flex flex-col gap-8">
+      <div className="relative z-10 max-w-[1365px] mx-auto px-4 md:px-6 py-5 md:py-8 flex flex-col gap-5 lg:gap-8">
         <GardenClubHero />
 
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-5 lg:gap-8">
           <div className="flex-1 min-w-0">
             <PointsInfo />
           </div>
-          <div className="w-[650px] shrink-0">
+          <div className="lg:w-[650px] lg:shrink-0">
             <SignUpSection />
           </div>
         </div>
