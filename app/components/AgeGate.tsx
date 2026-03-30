@@ -40,38 +40,16 @@ function getTtlHours(): number {
   return parsed;
 }
 
-function isExpired(verifiedAt: number, ttlHours: number): boolean {
-  if (!Number.isFinite(verifiedAt)) {
-    return true;
-  }
-
-  if (ttlHours === 0) {
-    return true;
-  }
-
-  const ttlMs = ttlHours * 60 * 60 * 1000;
-  return Date.now() - verifiedAt > ttlMs;
-}
-
-export default function AgeGate({ children }: { children: React.ReactNode }) {
-  const [status, setStatus] = useState<GateStatus>(() => {
-    const verified =
-      typeof window !== "undefined" &&
-      localStorage.getItem("ageGate:verified") === "true";
-    const verifiedAt = Number(
-      typeof window !== "undefined"
-        ? localStorage.getItem("ageGate:verifiedAt")
-        : ""
-    );
-    const ttlHours = getTtlHours();
-    const expired = isExpired(verifiedAt, ttlHours);
-
-    if (verified && !expired) {
-      return "verified";
-    } else {
-      return "prompt";
-    }
-  });
+export default function AgeGate({
+  children,
+  initialVerified,
+}: {
+  children: React.ReactNode;
+  initialVerified: boolean;
+}) {
+  const [status, setStatus] = useState<GateStatus>(
+    initialVerified ? "verified" : "prompt"
+  );
   const dialogRef = useRef<HTMLDivElement>(null);
   const yesButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -137,8 +115,10 @@ export default function AgeGate({ children }: { children: React.ReactNode }) {
   };
 
   const handleYes = () => {
-    localStorage.setItem("ageGate:verified", "true");
-    localStorage.setItem("ageGate:verifiedAt", String(Date.now()));
+    const ttlHours = getTtlHours();
+    if (ttlHours > 0) {
+      document.cookie = `ageGate:verified=true; max-age=${ttlHours * 3600}; path=/; SameSite=Lax`;
+    }
     setStatus("verified");
   };
 
@@ -174,7 +154,7 @@ export default function AgeGate({ children }: { children: React.ReactNode }) {
                 />
                 <h1
                   id="age-gate-title"
-                  className="text-center text-4xl font-black text-light-gold"
+                  className="font-poppins text-display text-center font-bold text-light-gold text-4xl"
                 >
                   Are you 21 or older?
                 </h1>
@@ -185,7 +165,7 @@ export default function AgeGate({ children }: { children: React.ReactNode }) {
                     onClick={handleYes}
                     className="w-full rounded-full bg-light-gold border-light-gold py-3 text-sm font-semibold text-dark-green transition hover:bg-orange-glow hover:border-orange-glow hover:text-white"
                   >
-                    YES, I'M 21+
+                    YES, I&apos;M 21+
                   </button>
                   <button
                     type="button"
@@ -201,22 +181,22 @@ export default function AgeGate({ children }: { children: React.ReactNode }) {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="age-gate-exit-title"
-                className="w-full max-w-sm rounded-2xl bg-dark-green p-8 shadow-2xl"
+                className="w-full max-w-lg rounded-2xl bg-dark-green p-8 shadow-2xl"
               >
                 <Image
-                  src="/logos-and-icons/logo-stacked/Sweetleaves_Logo_Ivory_Stacked_A.svg"
+                  src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_A.svg"
                   alt="Sweetleaves"
-                  width={160}
-                  height={80}
+                  width={300}
+                  height={150}
                   className="mx-auto mb-6"
                 />
                 <h1
                   id="age-gate-exit-title"
-                  className="text-center text-2xl font-bold text-ivory"
+                  className="text-center text-3xl font-bold text-light-gold"
                 >
                   We appreciate your honesty.
                 </h1>
-                <p className="mt-3 text-center text-sm text-ivory/60">
+                <p className="mt-3 text-center text-sm text-ivory">
                   Come back when you&apos;re 21.
                 </p>
               </div>

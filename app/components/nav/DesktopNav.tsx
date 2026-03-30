@@ -8,7 +8,7 @@ export default function DesktopNav() {
     <header className="hidden md:flex w-full bg-dark-green sticky top-0 z-40 items-center justify-between px-8 py-4">
       <Link href="/">
         <Image
-          src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_Ivory_Horizontal_A.svg"
+          src="logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_B.svg"
           alt="Sweetleaves"
           width={160}
           height={40}
