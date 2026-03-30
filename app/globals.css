@@ -12,6 +12,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@utility font-poppins {
+  font-family: var(--font-poppins);
+}
+
+@utility font-poppins-regular {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+}
+
+@utility font-poppins-semibold {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+}
+
+@utility font-poppins-bold {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+}
+
 @theme {
   --color-dark-green:    #0F2D25;
   --color-dark-sage:     #24433B;
@@ -19,9 +38,14 @@
   --color-ivory:         #E0D7B7;
   --color-parchment:     #F7F4EE;
   --color-almost-black:  #211A1D;
+  --color-sky-blue: #DAF5FF;
   --color-light-gold: #F4E781;
   --color-orange-glow: #FD7121;
   --height-sign-in-modal: 600px;
+
+  --text-display: 45px;
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: 0em;
 }
 
 @media (prefers-color-scheme: dark) {
