@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   createContext,
   useContext,
@@ -150,10 +151,10 @@ export default function AgeGate({ children }: { children: React.ReactNode }) {
   return (
     <AgeGateContext.Provider value={status}>
       <div className="relative">
-        {gateActive ? null : children}
+        {children}
 
         {gateActive ? (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6 py-10 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-almost-black/40 px-6 py-10">
             {status === "prompt" ? (
               <div
                 ref={dialogRef}
@@ -162,29 +163,36 @@ export default function AgeGate({ children }: { children: React.ReactNode }) {
                 aria-labelledby="age-gate-title"
                 tabIndex={-1}
                 onKeyDown={handleKeyDown}
-                className="w-full max-w-md rounded-2xl border border-zinc-200 bg-white p-8 text-zinc-900 shadow-2xl dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                className="w-full max-w-lg rounded-2xl bg-dark-green p-8 shadow-2xl"
               >
-                <h1 id="age-gate-title" className="text-2xl font-semibold">
-                  Are you 21 years of age or older?
+                <Image
+                  src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_A.svg"
+                  alt="Sweetleaves"
+                  width={300}
+                  height={150}
+                  className="mx-auto mb-6"
+                />
+                <h1
+                  id="age-gate-title"
+                  className="text-center text-4xl font-black text-light-gold"
+                >
+                  Are you 21 or older?
                 </h1>
-                <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-                  You must be 21+ to enter this site.
-                </p>
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <button
                     ref={yesButtonRef}
                     type="button"
                     onClick={handleYes}
-                    className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                    className="w-full rounded-full bg-light-gold border-light-gold py-3 text-sm font-semibold text-dark-green transition hover:bg-orange-glow hover:border-orange-glow hover:text-white"
                   >
-                    Yes, Enter
+                    YES, I'M 21+
                   </button>
                   <button
                     type="button"
                     onClick={handleNo}
-                    className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-900"
+                    className="w-full rounded-full border border-light-gold py-3 text-sm font-semibold text-light-gold transition hover:bg-orange-glow hover:border-orange-glow hover:text-white"
                   >
-                    No
+                    NO, I&apos;M NOT 21+
                   </button>
                 </div>
               </div>
@@ -193,13 +201,23 @@ export default function AgeGate({ children }: { children: React.ReactNode }) {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="age-gate-exit-title"
-                className="w-full max-w-md rounded-2xl border border-zinc-200 bg-white p-8 text-zinc-900 shadow-2xl dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                className="w-full max-w-sm rounded-2xl bg-dark-green p-8 shadow-2xl"
               >
-                <h1 id="age-gate-exit-title" className="text-2xl font-semibold">
-                  Access Restricted
+                <Image
+                  src="/logos-and-icons/logo-stacked/Sweetleaves_Logo_Ivory_Stacked_A.svg"
+                  alt="Sweetleaves"
+                  width={160}
+                  height={80}
+                  className="mx-auto mb-6"
+                />
+                <h1
+                  id="age-gate-exit-title"
+                  className="text-center text-2xl font-bold text-ivory"
+                >
+                  We appreciate your honesty.
                 </h1>
-                <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-                  This site is restricted to users 21 years of age or older.
+                <p className="mt-3 text-center text-sm text-ivory/60">
+                  Come back when you&apos;re 21.
                 </p>
               </div>
             )}
