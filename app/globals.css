@@ -74,3 +74,68 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Blog post content (WP HTML) */
+.blog-content p {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-dark);
+  margin-bottom: 1em;
+}
+
+.blog-content h2 {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 1.2;
+  color: var(--color-orange-glow);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.blog-content h3 {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--color-sage);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.blog-content ul,
+.blog-content ol {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-dark);
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+.blog-content ul {
+  list-style-type: disc;
+}
+
+.blog-content ol {
+  list-style-type: decimal;
+}
+
+.blog-content li {
+  margin-bottom: 0.25em;
+}
+
+.blog-content a {
+  color: var(--color-orange-glow);
+  text-decoration: underline;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 1em 0;
+}
