@@ -45,13 +45,12 @@ const BLOG_REVALIDATE_SECONDS = Number(
 // GraphQL queries
 // ---------------------------------------------------------------------------
 
-const POST_FIELDS = `
+const POST_LIST_FIELDS = `
   id
   title
   slug
   excerpt
   date
-  content
   featuredImage {
     node {
       sourceUrl
@@ -82,7 +81,7 @@ const GET_POSTS_QUERY = `
         endCursor
       }
       nodes {
-        ${POST_FIELDS}
+        ${POST_LIST_FIELDS}
       }
     }
   }
@@ -129,7 +128,8 @@ const GET_CURSOR_QUERY = `
 const GET_POST_QUERY = `
   query GetPost($slug: ID!) {
     post(id: $slug, idType: SLUG) {
-      ${POST_FIELDS}
+      ${POST_LIST_FIELDS}
+      content
     }
   }
 `;
@@ -148,15 +148,8 @@ const GET_CATEGORIES_QUERY = `
 `;
 
 const GET_ADJACENT_POST_QUERY = `
-  query GetAdjacentPosts($categoryName: String, $search: String) {
-    posts(
-      first: 1000
-      where: {
-        categoryName: $categoryName
-        search: $search
-        orderby: { field: DATE, order: DESC }
-      }
-    ) {
+  query GetAdjacentPosts {
+    posts(first: 1000, where: { orderby: { field: DATE, order: DESC } }) {
       nodes {
         slug
         title
@@ -205,35 +198,42 @@ export async function getPosts({
 } = {}): Promise<PostsResult> {
   const categoryName = categorySlug ?? null;
   const searchTerm = search ?? null;
+  const skipCount = (page - 1) * perPage;
+  const fetchOpts = { revalidateSeconds: BLOG_REVALIDATE_SECONDS };
 
-  // 1. Count total posts matching the filters.
-  const countData = await getWPData(
+  // For page 1: count + fetch in parallel. For page > 1: count + cursor in parallel, then fetch.
+  const countPromise = getWPData(
     COUNT_POSTS_QUERY,
     { categoryName, search: searchTerm },
-    { revalidateSeconds: BLOG_REVALIDATE_SECONDS }
+    fetchOpts
   );
-  const allIds: any[] = countData?.posts?.nodes ?? [];
-  const total = allIds.length;
-  const pageCount = total === 0 ? 1 : Math.ceil(total / perPage);
 
-  // 2. Determine the cursor to start from for the requested page.
   let afterCursor: string | null = null;
-  const skipCount = (page - 1) * perPage;
+
   if (skipCount > 0) {
-    const cursorData = await getWPData(
-      GET_CURSOR_QUERY,
-      { skip: skipCount, categoryName, search: searchTerm },
-      { revalidateSeconds: BLOG_REVALIDATE_SECONDS }
-    );
+    const [countData, cursorData] = await Promise.all([
+      countPromise,
+      getWPData(GET_CURSOR_QUERY, { skip: skipCount, categoryName, search: searchTerm }, fetchOpts),
+    ]);
+    const total = (countData?.posts?.nodes ?? []).length;
+    const pageCount = total === 0 ? 1 : Math.ceil(total / perPage);
     afterCursor = cursorData?.posts?.pageInfo?.endCursor ?? null;
+
+    const postsData = await getWPData(
+      GET_POSTS_QUERY,
+      { first: perPage, after: afterCursor, categoryName, search: searchTerm },
+      fetchOpts
+    );
+    const nodes: any[] = postsData?.posts?.nodes ?? [];
+    return { posts: nodes.map(mapPost), pageCount };
   }
 
-  // 3. Fetch the actual page of posts.
-  const postsData = await getWPData(
-    GET_POSTS_QUERY,
-    { first: perPage, after: afterCursor, categoryName, search: searchTerm },
-    { revalidateSeconds: BLOG_REVALIDATE_SECONDS }
-  );
+  const [countData, postsData] = await Promise.all([
+    countPromise,
+    getWPData(GET_POSTS_QUERY, { first: perPage, after: null, categoryName, search: searchTerm }, fetchOpts),
+  ]);
+  const total = (countData?.posts?.nodes ?? []).length;
+  const pageCount = total === 0 ? 1 : Math.ceil(total / perPage);
   const nodes: any[] = postsData?.posts?.nodes ?? [];
 
   return {
@@ -291,7 +291,7 @@ export async function getAdjacentPost(
   // posts ordered by date DESC and find neighbors by position.
   const data = await getWPData(
     GET_ADJACENT_POST_QUERY,
-    { categoryName: null, search: null },
+    {},
     { revalidateSeconds: BLOG_REVALIDATE_SECONDS }
   );
   const nodes: { slug: string; title: string }[] = data?.posts?.nodes ?? [];
