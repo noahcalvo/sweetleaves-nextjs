@@ -50,18 +50,27 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const ttlHours = Number(process.env.NEXT_PUBLIC_AGE_GATE_TTL_HOURS ?? "0");
   const initialVerified =
-    ttlHours !== 0 &&
-    cookieStore.get("ageGate:verified")?.value === "true";
+    ttlHours !== 0 && cookieStore.get("ageGate:verified")?.value === "true";
 
   return (
-    <html lang="en">
+    <html lang="en" className="bg-sky-blue">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
         <AgeGate initialVerified={initialVerified}>
-          <div className="min-h-screen flex flex-col dark:bg-emerald-950 bg-white">
+          <div
+            className="relative min-h-screen flex flex-col"
+            style={{
+              backgroundColor: "#DAF5FF",
+              backgroundImage: "url(/rewards/circles-bg.svg)",
+              backgroundAttachment: "fixed",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
             <AlpineIQProvider />
             <PageViewTracker />
+
             <Nav />
 
             <main className="flex-1 w-full">{children}</main>

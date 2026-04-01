@@ -1,4 +1,8 @@
-export { default as HeroSection } from "./HeroSection";
-export { default as BodySection } from "./BodySection";
-export { default as SecondarySection } from "./SecondarySection";
-export { default as ProductsSection } from "./ProductsSection";
+export { default as HomeHero } from "./HomeHero";
+export { default as ProductGrid } from "./ProductGrid";
+export { default as DealsBanner } from "./DealsBanner";
+export { default as StorePhoto } from "./StorePhoto";
+export { default as ReviewsSection } from "./ReviewsSection";
+export { default as BlogSection } from "./BlogSection";
+export { default as GardenClubPromo } from "./GardenClubPromo";
+export { default as HomeFaqSection } from "./HomeFaqSection";

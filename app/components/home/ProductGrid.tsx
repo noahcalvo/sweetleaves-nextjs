@@ -1,0 +1,76 @@
+import Image from "next/image";
+import Link from "next/link";
+
+interface ProductData {
+  name: string;
+  image: string;
+  href: string;
+}
+
+function ProductCategory({ name, image, href }: ProductData) {
+  const isExternal = href.startsWith("http");
+
+  const circle = (
+    <div className="rounded-full size-[165px] relative overflow-hidden bg-parchment md:bg-white p-4">
+      <Image src={image} alt={name} fill className="object-contain p-4" />
+    </div>
+  );
+
+  const pill = (
+    <span className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity text-center w-[166px] block">
+      {name}
+    </span>
+  );
+
+  const Wrapper = isExternal ? "a" : Link;
+  const linkProps = isExternal
+    ? { href, target: "_blank" as const, rel: "noopener noreferrer" }
+    : { href };
+
+  return (
+    <div className="flex flex-col gap-[23px] items-center justify-center">
+      <Wrapper {...linkProps}>{circle}</Wrapper>
+      <Wrapper {...linkProps}>{pill}</Wrapper>
+    </div>
+  );
+}
+
+const products: ProductData[] = [
+  { name: "Shop All", image: "/home/products/lighter.png", href: "/shop" },
+  { name: "Flower", image: "/home/products/flower.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/flower" },
+  { name: "Pre-Rolls", image: "/home/products/prerolls.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/pre-rolls" },
+  { name: "Vaporizers", image: "/home/products/vaporizers.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/vaporizers" },
+  { name: "Edibles", image: "/home/products/gummies.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/edibles" },
+  { name: "Concentrates", image: "/home/products/concentrate.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/concentrates" },
+  { name: "Staff Picks", image: "/home/products/staff-picks.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/staff-picks" },
+];
+
+const mobileProducts = products.filter((p) => p.name !== "Shop All");
+
+export default function ProductGrid() {
+  return (
+    <div>
+      {/* Desktop: all 7 in a single flex-wrap row */}
+      <div className="hidden md:flex flex-wrap justify-center gap-x-[23px] gap-y-6">
+        {products.map((product) => (
+          <ProductCategory key={product.name} {...product} />
+        ))}
+      </div>
+
+      {/* Mobile: 6 items in 2-column grid + full-width Shop All button */}
+      <div className="md:hidden flex flex-col items-center gap-6">
+        <div className="grid grid-cols-2 gap-x-[23px] gap-y-6">
+          {mobileProducts.map((product) => (
+            <ProductCategory key={product.name} {...product} />
+          ))}
+        </div>
+        <Link
+          href="/shop"
+          className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity w-full max-w-[358px] text-center"
+        >
+          Shop All
+        </Link>
+      </div>
+    </div>
+  );
+}

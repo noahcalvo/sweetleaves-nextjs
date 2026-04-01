@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import GardenClubHero from "./components/GardenClubHero";
 import PointsInfo from "./components/PointsInfo";
 import SignUpSection from "./components/SignUpSection";
@@ -13,15 +12,8 @@ export const metadata: Metadata = {
 
 export default function RewardsPage() {
   return (
-    <div className="relative bg-sky-blue min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
       {/* Decorative background circles */}
-      <Image
-        src="/rewards/circles-bg.svg"
-        alt=""
-        fill
-        className="object-cover pointer-events-none"
-        priority={false}
-      />
 
       <div className="relative z-10 max-w-[1365px] mx-auto px-4 md:px-6 py-5 md:py-8 flex flex-col gap-5 lg:gap-8">
         <GardenClubHero />

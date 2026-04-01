@@ -1,50 +1,45 @@
 import type { Metadata } from "next";
 import {
-  buildHomeMetadata,
-  EMPTY_HOME_DATA,
-  FALLBACK_HOME_METADATA,
-  getHomePage,
-  type HomeData,
-} from "../lib/homepage";
-import { BodySection, HeroSection, ProductsSection, SecondarySection } from "./components/home";
+  HomeHero,
+  ProductGrid,
+  DealsBanner,
+  StorePhoto,
+  ReviewsSection,
+  BlogSection,
+  GardenClubPromo,
+  HomeFaqSection,
+} from "./components/home";
 
-export async function generateMetadata(): Promise<Metadata> {
-  try {
-    const page = await getHomePage();
+export const metadata: Metadata = {
+  title: "Sweetleaves | Cannabis Dispensary in Minneapolis",
+  description:
+    "Recreational cannabis dispensary in Minneapolis, Minnesota. Shop flower, edibles, vaporizers, concentrates, and more. Visit us in the North Loop.",
+};
 
-    return buildHomeMetadata(page);
-  } catch {
-    // WP down? Still render a sane title.
-    return FALLBACK_HOME_METADATA;
-  }
-}
-
-export default async function Home() {
-  // If WP errors, we still render the page with empty content instead of crashing.
-  let page: HomeData = EMPTY_HOME_DATA;
-
-  try {
-    page = await getHomePage();
-  } catch (e) {
-    // keep it quiet in UI; logging server-side is OK but don’t dump the whole response
-    console.error("Failed fetching homepage data from WP", e);
-  }
-
-  const { header, subheader1, body1, subheader2, body2, showCarousel } = page;
-
+export default function Home() {
   return (
-    <div className="font-sans">
-      <main className="w-full max-w-4xl mx-auto flex flex-col items-start justify-start py-16 px-6 dark:bg-black sm:items-start">
-        <div className="w-full space-y-24">
-          <HeroSection header={header} subheader={subheader1} />
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="relative z-10 max-w-[1365px] mx-auto px-4 md:px-6 py-5 md:py-8 flex flex-col gap-5 lg:gap-[30px]">
+        <HomeHero />
+        <ProductGrid />
+        <DealsBanner />
+        <StorePhoto
+          src="/home/store-exterior.png"
+          alt="Sweetleaves dispensary exterior"
+        />
 
-          <BodySection body={body1} />
-
-          <SecondarySection subheader={subheader2} body={body2} />
-
-          {showCarousel ? <ProductsSection /> : null}
+        <div className="flex flex-col lg:flex-row gap-5 lg:gap-[30px]">
+          <ReviewsSection />
+          <BlogSection />
         </div>
-      </main>
+
+        <GardenClubPromo />
+        <StorePhoto
+          src="/home/store-interior.png"
+          alt="Sweetleaves dispensary interior"
+        />
+        <HomeFaqSection />
+      </div>
     </div>
   );
 }

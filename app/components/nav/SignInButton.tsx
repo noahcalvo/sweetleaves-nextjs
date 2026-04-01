@@ -9,7 +9,7 @@ export default function SignInButton() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 text-parchment uppercase tracking-wide text-sm"
+        className="flex items-center gap-2 text-light-gold font-poppins-bold text-[15px] uppercase"
       >
         {/* TODO: replace ⊙ with user icon asset from public/ */}
         <span aria-hidden="true">⊙</span>

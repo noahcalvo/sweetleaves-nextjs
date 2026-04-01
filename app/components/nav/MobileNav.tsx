@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SignInButton from "./SignInButton";
@@ -8,6 +8,7 @@ import { NAV_LINKS } from "./links";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", isOpen);
@@ -15,72 +16,79 @@ export default function MobileNav() {
   }, [isOpen]);
 
   return (
-    <header className="flex md:hidden w-full bg-dark-green sticky top-0 z-40 items-center justify-between px-6 py-4">
-      <Link href="/">
-        <Image
-          src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_Ivory_Horizontal_A.svg"
-          alt="Sweetleaves"
-          width={130}
-          height={32}
-          priority
-        />
-      </Link>
+    <div className="md:hidden sticky top-0 z-40">
+      <div className="relative bg-dark-green px-5 pt-4 pb-4">
+        {/* Top row: logo + hamburger */}
+        <div className="flex items-center justify-between">
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            <Image
+              src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_B.svg"
+              alt="Sweetleaves"
+              width={234}
+              height={33}
+              priority
+            />
+          </Link>
 
-      <button
-        onClick={() => setIsOpen(true)}
-        aria-label="Open menu"
-        className="text-parchment text-2xl leading-none"
-      >
-        {/* TODO: replace ☰ with hamburger icon asset from public/ */}
-        <span aria-hidden="true">☰</span>
-      </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="w-[47px] h-[25px] relative flex flex-col justify-between"
+          >
+            <span
+              className={`block w-full h-[3px] bg-light-gold rounded-full transition-transform duration-300 origin-center ${
+                isOpen ? "translate-y-[11px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block w-full h-[3px] bg-light-gold rounded-full transition-opacity duration-300 ${
+                isOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block w-full h-[3px] bg-light-gold rounded-full transition-transform duration-300 origin-center ${
+                isOpen ? "-translate-y-[11px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
 
-      {isOpen && (
-        <div className="fixed inset-0 z-50 bg-dark-green flex flex-col px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" onClick={() => setIsOpen(false)}>
-              <Image
-                src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_Ivory_Horizontal_A.svg"
-                alt="Sweetleaves"
-                width={130}
-                height={32}
-              />
-            </Link>
-            <button
-              onClick={() => setIsOpen(false)}
-              aria-label="Close menu"
-              className="text-parchment text-2xl leading-none"
-            >
-              {/* TODO: replace ✕ with close icon asset from public/ */}
-              <span aria-hidden="true">✕</span>
-            </button>
-          </div>
+        {/* Shop Now button — always visible */}
+        <Link
+          href="/shop"
+          onClick={() => setIsOpen(false)}
+          className="mt-4 flex items-center justify-center bg-light-gold text-dark-green font-poppins-semibold uppercase text-base py-3.5 rounded-full hover:opacity-90 transition-opacity w-full"
+        >
+          Shop Now
+        </Link>
 
-          <div className="flex flex-col items-center gap-8 mt-12">
-            <Link
-              href="/shop"
-              onClick={() => setIsOpen(false)}
-              className="bg-ivory text-dark-green uppercase tracking-wide text-sm font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity"
-            >
-              Shop Now
-            </Link>
+        {/* Expanded menu */}
+        <div
+          ref={menuRef}
+          className="absolute left-0 right-0 top-full bg-dark-green overflow-hidden transition-[max-height] duration-300 ease-in-out"
+          style={{
+            maxHeight: isOpen
+              ? `${menuRef.current?.scrollHeight ?? 300}px`
+              : "0px",
+          }}
+        >
+          <div className="px-5 pb-5 pt-2 flex flex-col items-center gap-3">
             {NAV_LINKS.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className="text-parchment uppercase tracking-wide text-sm hover:opacity-75 transition-opacity"
+                className="font-poppins-bold text-[15px] text-white uppercase hover:opacity-75 transition-opacity py-1"
               >
                 {label}
               </Link>
             ))}
-          </div>
-
-          <div className="mt-auto mb-6 flex justify-center">
-            <SignInButton />
+            <div className="pt-1 pb-2">
+              <SignInButton />
+            </div>
           </div>
         </div>
-      )}
-    </header>
+      </div>
+    </div>
   );
 }

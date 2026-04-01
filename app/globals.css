@@ -41,11 +41,25 @@
   --color-sky-blue: #DAF5FF;
   --color-light-gold: #F4E781;
   --color-orange-glow: #FD7121;
+  --color-dark: #1E1E1E;
   --height-sign-in-modal: 600px;
 
   --text-display: 45px;
   --text-display--line-height: 1;
   --text-display--letter-spacing: 0em;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {

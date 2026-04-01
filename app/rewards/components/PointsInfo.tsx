@@ -11,7 +11,7 @@ function BenefitCard({ title, description }: BenefitCardProps) {
           {title}
         </span>
       </div>
-      <p className="font-poppins-regular text-lg text-center">{description}</p>
+      <p className="font-poppins-regular text-lg text-center text-dark">{description}</p>
     </div>
   );
 }

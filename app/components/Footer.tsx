@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-sage rounded-t-[30px] md:rounded-t-[40px] px-5 md:px-[73px] py-10 md:py-14 flex flex-col gap-10 md:gap-12">
+    <footer className="bg-dark-sage rounded-t-[30px] md:rounded-t-[40px] px-5 md:px-[73px] py-10 md:py-14 flex flex-col gap-10 md:gap-12 mx-4 md:mx-6">
       {/* Top row: Logo + tagline */}
       <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-8">
         <div className="flex flex-col gap-2.5 items-center md:items-start">
@@ -12,7 +12,7 @@ export default function Footer() {
           </p>
           <Link href="/">
             <Image
-              src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_B.svg"
+              src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_A.svg"
               alt="Sweetleaves"
               width={341}
               height={61}
@@ -120,10 +120,14 @@ export default function Footer() {
         </div>
 
         {/* Map - mobile only shown here, desktop in bottom row */}
-        <div className="md:hidden bg-gray-300 rounded-[10px] w-full max-w-[350px] h-[163px] flex items-center justify-center">
-          <span className="font-poppins-semibold text-base uppercase">
-            Map embed
-          </span>
+        <div className="md:hidden w-full max-w-[350px]">
+          <Image
+            src="/home/map.png"
+            alt="Map to Sweetleaves"
+            width={350}
+            height={163}
+            className="w-full h-auto rounded-[10px]"
+          />
         </div>
       </div>
 
@@ -131,10 +135,14 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-8">
         {/* Left: map + social */}
         <div className="flex flex-col gap-5 items-center md:items-start">
-          <div className="hidden md:flex bg-gray-300 rounded-[10px] w-[429px] h-[163px] items-center justify-center">
-            <span className="font-poppins-semibold text-base uppercase">
-              Map embed
-            </span>
+          <div className="hidden md:block w-[429px]">
+            <Image
+              src="/home/map.png"
+              alt="Map to Sweetleaves"
+              width={429}
+              height={163}
+              className="w-full h-auto rounded-[10px]"
+            />
           </div>
           <div className="flex flex-col md:flex-row gap-3.5 md:gap-5 items-center md:items-end">
             <div className="flex gap-3.5 items-center">
