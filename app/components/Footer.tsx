@@ -121,12 +121,14 @@ export default function Footer() {
 
         {/* Map - mobile only shown here, desktop in bottom row */}
         <div className="md:hidden w-full max-w-[350px]">
-          <Image
-            src="/home/map.png"
-            alt="Map to Sweetleaves"
+          <iframe
+            src="https://www.google.com/maps?q=905+N+Washington+Ave,+Minneapolis,+MN+55401&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            title="Map to Sweetleaves"
             width={350}
-            height={163}
-            className="w-full h-auto rounded-[10px]"
+            height={200}
+            className="w-full h-auto rounded-[10px] border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
       </div>
@@ -136,12 +138,14 @@ export default function Footer() {
         {/* Left: map + social */}
         <div className="flex flex-col gap-5 items-center md:items-start">
           <div className="hidden md:block w-[429px]">
-            <Image
-              src="/home/map.png"
-              alt="Map to Sweetleaves"
+            <iframe
+              src="https://www.google.com/maps?q=905+N+Washington+Ave,+Minneapolis,+MN+55401&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Map to Sweetleaves"
               width={429}
-              height={163}
-              className="w-full h-auto rounded-[10px]"
+              height={200}
+              className="w-full h-auto rounded-[10px] border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
           <div className="flex flex-col md:flex-row gap-3.5 md:gap-5 items-center md:items-end">
