@@ -7,8 +7,8 @@ import {
   ReviewsSection,
   BlogSection,
   GardenClubPromo,
-  HomeFaqSection,
 } from "./components/home";
+import FaqSection from "./components/FaqSection";
 
 export const metadata: Metadata = {
   title: "Sweetleaves | Cannabis Dispensary in Minneapolis",
@@ -38,7 +38,7 @@ export default function Home() {
           src="/home/store-interior.png"
           alt="Sweetleaves dispensary interior"
         />
-        <HomeFaqSection />
+        <FaqSection />
       </div>
     </div>
   );

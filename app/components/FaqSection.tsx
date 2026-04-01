@@ -15,7 +15,7 @@ function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
     <div className="bg-white rounded-[50px] overflow-hidden">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-2.5 md:gap-7 pl-6 md:pl-8 pr-2.5 py-2.5"
+        className="w-full flex items-center justify-between gap-1 md:gap-7 pl-4 md:pl-8 pr-2.5 py-2.5"
       >
         <span className="font-poppins-bold text-xl text-dark-green text-left">
           {question}
@@ -53,7 +53,7 @@ const FAQ_ITEMS = [
   {
     question: "What should I bring?",
     answer:
-      "Just a valid government-issued photo ID showing you are 21 or older. We accept driver's licenses, passports, and state IDs.",
+      "Just a valid government-issued photo ID showing you are 21 or older. We accept driver\u2019s licenses, passports, and state IDs.",
   },
   {
     question: "Can I shop online?",
@@ -62,11 +62,11 @@ const FAQ_ITEMS = [
   },
 ];
 
-export default function HomeFaqSection() {
+export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-parchment border border-sage rounded-[40px] flex flex-col gap-5 md:gap-12 items-center px-6 md:px-10 py-8 md:py-12">
+    <section className="bg-parchment border border-sage rounded-[40px] flex flex-col gap-5 md:gap-12 items-center px-4 md:px-10 py-8 md:py-12">
       <div className="flex items-center justify-between w-full">
         <h2 className="font-poppins-bold text-3xl md:text-display text-orange-glow text-center md:text-left flex-1 md:flex-none">
           Common Questions
@@ -78,7 +78,7 @@ export default function HomeFaqSection() {
           View all FAQ
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-5 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-2.5 md:gap-5 w-full">
         {FAQ_ITEMS.map((item, i) => (
           <FaqItem
             key={item.question}

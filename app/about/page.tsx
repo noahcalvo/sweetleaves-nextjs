@@ -3,7 +3,7 @@ import AboutIntro from "./components/AboutIntro";
 import FindUs from "./components/FindUs";
 import HowToShop from "./components/HowToShop";
 import WhatWeStandFor from "./components/WhatWeStandFor";
-import AboutFaqSection from "./components/AboutFaqSection";
+import FaqSection from "../components/FaqSection";
 
 export const metadata: Metadata = {
   title: "About",
@@ -24,7 +24,7 @@ export default function AboutPage() {
         <FindUs />
         <HowToShop />
         <WhatWeStandFor />
-        <AboutFaqSection />
+        <FaqSection />
       </div>
     </div>
   );
