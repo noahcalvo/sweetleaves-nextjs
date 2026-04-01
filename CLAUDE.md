@@ -23,12 +23,17 @@ app/
       Nav.tsx             # Thin orchestrator (server)
       DesktopNav.tsx      # Desktop layout (server)
       MobileNav.tsx       # Mobile layout + hamburger (client)
+      Marquee.tsx          # Scrolling announcement banner (server)
       SignInButton.tsx    # Sign-in button + iframe modal (client)
     home/                 # Components used only on the home page
-      HeroSection.tsx
-      BodySection.tsx
-      SecondarySection.tsx
-      ProductsSection.tsx
+      HomeHero.tsx
+      ProductGrid.tsx
+      DealsBanner.tsx
+      StorePhoto.tsx
+      ReviewsSection.tsx
+      BlogSection.tsx
+      GardenClubPromo.tsx
+      HomeFaqSection.tsx
       index.ts
     AgeGate.tsx           # App-wide age gate (client)
     AlpineIQProvider.tsx  # Analytics provider (client)
