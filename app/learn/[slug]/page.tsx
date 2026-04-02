@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, getAdjacentPost } from "@/lib/blog";
-import GardenClubPromo from "../../components/home/GardenClubPromo";
+import LearnGardenClub from "../components/LearnGardenClub";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -40,10 +40,10 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div className="max-w-[1366px] mx-auto px-4 md:px-[37px] py-8 flex flex-col gap-[30px] items-center">
-      <article className="bg-white rounded-[50px] w-full px-5 md:px-[117px] pt-[40px] md:pt-[90px] pb-[40px] md:pb-[60px] flex flex-col gap-[40px] md:gap-[63px] items-center">
+    <div className="max-w-[1366px] mx-auto px-4 md:px-[37px] pt-8 md:pt-[120px] pb-8 flex flex-col gap-[30px] items-center">
+      <article className="bg-white rounded-[50px] w-full px-5 md:px-[117px] pt-[20px] md:pt-[90px] pb-[40px] md:pb-[60px] flex flex-col gap-[40px] md:gap-[63px] items-center">
         {post.featuredImage && (
-          <div className="relative w-full aspect-[16/9] rounded-[30px] md:rounded-[70px] overflow-hidden">
+          <div className="relative w-full aspect-[16/9] rounded-[30px] md:rounded-[70px] overflow-hidden md:-mt-[183px]">
             <Image
               src={post.featuredImage.url}
               alt={post.featuredImage.alt || post.title}
@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </article>
 
-      <GardenClubPromo />
+      <LearnGardenClub />
     </div>
   );
 }
