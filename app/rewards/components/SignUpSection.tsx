@@ -2,16 +2,17 @@ export default function SignUpSection() {
   return (
     <div
       id="signup"
-      className="bg-white border border-sage rounded-[50px] flex flex-col items-center w-full h-full min-h-[500px] lg:min-h-0"
+      className="bg-dark-green rounded-[50px] flex flex-col items-center w-full h-full min-h-[1450px] lg:min-h-0 overflow-hidden"
     >
-      <h2 className="font-poppins-bold text-3xl md:text-display text-dark-green text-center px-6 md:px-8 pt-10 md:pt-12 leading-tight">
+      <h2 className="font-poppins-bold text-3xl md:text-display text-white text-center px-6 md:px-8 pt-10 md:pt-12 leading-tight">
         Sign Up For The Garden Club
       </h2>
-      <div className="flex-1 flex items-center justify-center w-full px-6 md:px-8 pb-10 md:pb-12">
-        <p className="font-poppins-bold text-lg text-center">
-          SIGN UP FORM EMBED
-        </p>
-      </div>
+      <iframe
+        src="https://lab.alpineiq.com/join/c/3585/7647"
+        title="Garden Club Sign Up"
+        className="flex-1 w-full rounded-b-[50px]"
+        style={{ border: "none", minHeight: 1450 }}
+      />
     </div>
   );
 }
