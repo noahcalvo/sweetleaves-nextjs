@@ -5,8 +5,15 @@ import { NAV_LINKS } from "./links";
 
 export default function DesktopNav() {
   return (
-    <div className="hidden md:block sticky top-0 z-40 px-6 pt-2 pb-4">
-      <nav className="bg-dark-green rounded-[70px] max-w-[1365px] mx-auto flex items-center justify-between px-9 h-[89px]">
+    <div className="hidden md:block sticky top-0 z-40 px-6 pt-2 pb-4 relative">
+      <div
+        className="absolute inset-x-0 top-0 h-1/2 backdrop-blur-xl pointer-events-none bg-sky-blue"
+        style={{
+          maskImage: "linear-gradient(to bottom, black, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+        }}
+      />
+      <nav className="relative bg-dark-green rounded-[70px] max-w-[1365px] mx-auto flex items-center justify-between px-9 h-[89px]">
         <Link href="/">
           <Image
             src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_B.svg"

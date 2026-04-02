@@ -1,9 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SignInButton() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -22,20 +31,21 @@ export default function SignInButton() {
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="relative bg-ivory rounded-lg w-full max-w-md h-sign-in-modal"
+            className="relative bg-ivory rounded-lg w-full max-w-md overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setIsOpen(false)}
               aria-label="Close"
-              className="absolute top-3 right-3 text-sage hover:text-almost-black"
+              className="absolute top-3 right-3 text-sage hover:text-almost-black z-10"
             >
               {/* TODO: replace ✕ with close icon asset from public/ */}
               <span aria-hidden="true">✕</span>
             </button>
             <iframe
               src="https://lab.alpineiq.com/wallet/3585"
-              className="w-full h-full rounded-lg"
+              className="w-full rounded-lg"
+              style={{ height: "min(1200px, 90vh)" }}
               title="Sign In"
             />
           </div>
