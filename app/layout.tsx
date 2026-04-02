@@ -38,7 +38,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
-  const ttlHours = Number(process.env.NEXT_PUBLIC_AGE_GATE_TTL_HOURS ?? "0");
+  const rawTtl = process.env.NEXT_PUBLIC_AGE_GATE_TTL_HOURS;
+  const parsedTtl = Number(rawTtl);
+  const ttlHours =
+    rawTtl != null && Number.isFinite(parsedTtl) && parsedTtl >= 0
+      ? parsedTtl
+      : 12;
   const initialVerified =
     ttlHours !== 0 && cookieStore.get("ageGate:verified")?.value === "true";
 
