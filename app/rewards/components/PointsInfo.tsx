@@ -19,7 +19,6 @@ function BenefitCard({ title, description }: BenefitCardProps) {
 export default function PointsInfo() {
   return (
     <div className="bg-parchment border border-sage rounded-[50px] py-2.5 flex flex-col gap-2.5">
-      {/* It's Simple */}
       <div className="flex flex-col items-center justify-center gap-5 md:gap-7 px-4 md:px-10 py-8 md:py-12">
         <h2 className="font-poppins-bold text-3xl md:text-display text-dark-green text-center">
           It&apos;s Simple
@@ -36,7 +35,6 @@ export default function PointsInfo() {
         </p>
       </div>
 
-      {/* Using Points */}
       <div className="flex flex-col items-center justify-center gap-4 px-4 md:px-9 py-6 md:py-10">
         <h2 className="font-poppins-bold text-3xl md:text-display text-dark-green text-center">
           Using Points
@@ -55,7 +53,6 @@ export default function PointsInfo() {
         </div>
       </div>
 
-      {/* What You Get */}
       <div className="flex flex-col items-start gap-6 md:gap-9 px-4 md:px-10 py-6 md:py-10">
         <h2 className="font-poppins-bold text-3xl md:text-display text-dark-green text-center w-full">
           What You Get

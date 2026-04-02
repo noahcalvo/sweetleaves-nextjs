@@ -77,7 +77,7 @@ export default function FaqSection() {
 
   return (
     <section className="bg-parchment border border-sage rounded-[40px] flex flex-col gap-5 md:gap-12 items-center px-6 md:px-10 py-8 md:py-12">
-      <div className="flex items-center justify-between md:justify-between w-full">
+      <div className="flex items-center justify-between w-full">
         <h2 className="font-poppins-bold text-3xl md:text-display text-orange-glow text-center md:text-left flex-1 md:flex-none">
           Common Questions
         </h2>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { cookies } from "next/headers";
 import AgeGate from "./components/AgeGate";
 import AlpineIQProvider from "./components/AlpineIQProvider";
@@ -7,16 +7,6 @@ import PageViewTracker from "./components/PageViewTracker";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -55,19 +45,10 @@ export default async function RootLayout({
   return (
     <html lang="en" className="bg-sky-blue">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
+        className={`${poppins.variable} antialiased`}
       >
         <AgeGate initialVerified={initialVerified}>
-          <div
-            className="relative min-h-screen flex flex-col"
-            style={{
-              backgroundColor: "#DAF5FF",
-              backgroundImage: "url(/rewards/circles-bg.svg)",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
+          <div className="relative min-h-screen flex flex-col bg-sky-blue bg-[url(/rewards/circles-bg.svg)] bg-cover bg-center bg-fixed">
             <AlpineIQProvider />
             <PageViewTracker />
 

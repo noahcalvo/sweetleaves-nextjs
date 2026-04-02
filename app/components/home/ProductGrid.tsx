@@ -50,14 +50,14 @@ const mobileProducts = products.filter((p) => p.name !== "Shop All");
 export default function ProductGrid() {
   return (
     <div>
-      {/* Desktop: all 7 in a single flex-wrap row */}
+      {/* Desktop */}
       <div className="hidden md:flex flex-wrap justify-center gap-x-[23px] gap-y-6">
         {products.map((product) => (
           <ProductCategory key={product.name} {...product} />
         ))}
       </div>
 
-      {/* Mobile: 6 items in 2-column grid + full-width Shop All button */}
+      {/* Mobile */}
       <div className="md:hidden flex flex-col items-center gap-6">
         <div className="grid grid-cols-2 gap-x-[23px] gap-y-6">
           {mobileProducts.map((product) => (

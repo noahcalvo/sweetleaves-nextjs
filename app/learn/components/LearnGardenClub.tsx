@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function LearnGardenClub() {
   return (
     <section className="bg-dark-green rounded-[40px] overflow-hidden w-full">
-      {/* Mobile: stacked layout */}
+      {/* Mobile */}
       <div className="flex flex-col gap-[15px] items-center justify-center px-[38px] py-[37px] md:hidden">
         <Link href="/rewards" className="relative w-[340px] h-[67px]">
           <Image
@@ -43,7 +43,7 @@ export default function LearnGardenClub() {
         </div>
       </div>
 
-      {/* Desktop: horizontal layout */}
+      {/* Desktop */}
       <div className="hidden md:flex gap-[60px] items-center justify-end px-5 py-2.5 min-h-[372px]">
         <div className="flex flex-col gap-5 items-start w-[585px]">
           <Link href="/rewards" className="relative w-[525px] h-[104px]">

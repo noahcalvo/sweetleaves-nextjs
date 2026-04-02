@@ -119,7 +119,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Map - mobile only shown here, desktop in bottom row */}
+        {/* Map - mobile only */}
         <div className="md:hidden w-full max-w-[350px]">
           <iframe
             src="https://www.google.com/maps?q=905+N+Washington+Ave,+Minneapolis,+MN+55401&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -135,7 +135,7 @@ export default function Footer() {
 
       {/* Bottom row */}
       <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-8">
-        {/* Left: map + social */}
+        {/* Map + social */}
         <div className="flex flex-col gap-5 items-center md:items-start">
           <div className="hidden md:block w-[429px]">
             <iframe
@@ -184,7 +184,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Right: compliance */}
+        {/* Compliance */}
         <div className="flex flex-col gap-7 items-center md:items-start w-full md:w-auto">
           <Image
             src="/compliance/mocc-logo.png"

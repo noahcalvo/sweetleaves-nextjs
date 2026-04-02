@@ -154,7 +154,7 @@ export default function AgeGate({
                 />
                 <h1
                   id="age-gate-title"
-                  className="font-poppins text-display text-center font-bold text-light-gold text-4xl"
+                  className="font-poppins text-display text-center font-bold text-light-gold"
                 >
                   Are you 21 or older?
                 </h1>
@@ -163,7 +163,7 @@ export default function AgeGate({
                     ref={yesButtonRef}
                     type="button"
                     onClick={handleYes}
-                    className="w-full rounded-full bg-light-gold border-light-gold py-3 text-sm font-semibold text-dark-green transition hover:bg-orange-glow hover:border-orange-glow hover:text-white"
+                    className="w-full rounded-full bg-light-gold border border-light-gold py-3 text-sm font-semibold text-dark-green transition hover:bg-orange-glow hover:border-orange-glow hover:text-white"
                   >
                     YES, I&apos;M 21+
                   </button>

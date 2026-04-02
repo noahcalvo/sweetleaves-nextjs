@@ -92,13 +92,13 @@ export default function WhatWeStandFor() {
       <h2 className="font-poppins-bold text-3xl lg:text-display text-white text-center">
         What We Stand For
       </h2>
-      {/* Desktop: horizontal pills */}
+      {/* Desktop */}
       <div className="hidden lg:flex flex-col gap-3 w-full max-w-[1278px]">
         {VALUES.map((v) => (
           <ValuePill key={v.name} {...v} />
         ))}
       </div>
-      {/* Mobile: stacked cards */}
+      {/* Mobile */}
       <div className="flex lg:hidden flex-col gap-2.5 w-full">
         {VALUES.map((v) => (
           <ValueCard key={v.name} {...v} />

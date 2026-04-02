@@ -13,8 +13,6 @@ export const metadata: Metadata = {
 export default function RewardsPage() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Decorative background circles */}
-
       <div className="relative z-10 max-w-[1365px] mx-auto px-4 md:px-6 py-5 md:py-8 flex flex-col gap-5 lg:gap-8">
         <GardenClubHero />
 

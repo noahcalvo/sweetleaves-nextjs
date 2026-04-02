@@ -1,17 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @utility font-poppins {
   font-family: var(--font-poppins);
 }
@@ -62,31 +50,23 @@
   animation: marquee 30s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Blog post content (WP HTML) */
-.blog-content p {
+.blog-content {
   font-family: var(--font-poppins);
+  color: var(--color-dark);
+}
+
+.blog-content p {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--color-dark);
   margin-bottom: 1em;
 }
 
 .blog-content h2 {
-  font-family: var(--font-poppins);
   font-weight: 700;
   font-size: 35px;
   line-height: 1.2;
@@ -96,7 +76,6 @@ body {
 }
 
 .blog-content h3 {
-  font-family: var(--font-poppins);
   font-weight: 700;
   font-size: 30px;
   line-height: 1.2;
@@ -107,11 +86,9 @@ body {
 
 .blog-content ul,
 .blog-content ol {
-  font-family: var(--font-poppins);
   font-weight: 400;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--color-dark);
   margin-bottom: 1em;
   padding-left: 1.5em;
 }
