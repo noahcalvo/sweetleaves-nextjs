@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getPosts, getCategories } from "@/lib/blog";
-import GardenClubPromo from "../components/home/GardenClubPromo";
+import LearnGardenClub from "./components/LearnGardenClub";
 import BlogCard from "./components/BlogCard";
 import BlogSearch from "./components/BlogSearch";
 import CategoryFilter from "./components/CategoryFilter";
@@ -69,7 +69,7 @@ export default async function LearnPage({ searchParams }: Props) {
         searchParams={paginationParams}
       />
 
-      <GardenClubPromo />
+      <LearnGardenClub />
     </div>
   );
 }

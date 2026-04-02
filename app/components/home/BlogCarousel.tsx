@@ -20,7 +20,6 @@ export default function BlogCarousel({ posts }: Props) {
 
   if (posts.length === 0) return null;
 
-  const post = posts[activeIndex];
   const total = posts.length;
 
   function handlePrev() {
@@ -33,34 +32,43 @@ export default function BlogCarousel({ posts }: Props) {
 
   return (
     <>
-      <div className="bg-white rounded-[30px] md:rounded-[20px] p-3.5 w-full max-w-[608px] flex flex-col gap-2.5">
-        <div className="relative w-full aspect-[16/9] rounded-[20px] md:rounded-[10px] overflow-hidden">
-          {post.image ? (
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              className="object-cover"
-            />
-          ) : (
-            <div className="w-full h-full bg-sage/20" />
-          )}
-        </div>
-        <div className="flex flex-col gap-2.5 px-1">
-          <h3 className="font-poppins-bold text-[25px] md:text-[30px] text-dark-sage">
-            {post.title}
-          </h3>
+      <div className="grid w-full max-w-[608px]">
+        {posts.map((p, i) => (
           <div
-            className="font-poppins-regular text-[18px] text-dark line-clamp-2"
-            dangerouslySetInnerHTML={{ __html: post.excerpt }}
-          />
-          <Link
-            href={post.href}
-            className="font-poppins-bold text-[20px] text-orange-glow uppercase"
+            key={i}
+            className={`col-start-1 row-start-1 bg-white rounded-[30px] md:rounded-[20px] p-3.5 w-full flex flex-col gap-2.5${
+              i === activeIndex ? "" : " invisible"
+            }`}
           >
-            Read More &gt;
-          </Link>
-        </div>
+            <div className="relative w-full aspect-[16/9] rounded-[20px] md:rounded-[10px] overflow-hidden">
+              {p.image ? (
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-sage/20" />
+              )}
+            </div>
+            <div className="flex flex-col gap-2.5 px-1">
+              <h3 className="font-poppins-bold text-[25px] md:text-[30px] text-dark-sage line-clamp-2">
+                {p.title}
+              </h3>
+              <div
+                className="font-poppins-regular text-[18px] text-dark line-clamp-2"
+                dangerouslySetInnerHTML={{ __html: p.excerpt }}
+              />
+              <Link
+                href={p.href}
+                className="font-poppins-bold text-[20px] text-orange-glow uppercase"
+              >
+                Read More &gt;
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="flex gap-[10px] md:gap-[25px] items-center justify-center w-full">
