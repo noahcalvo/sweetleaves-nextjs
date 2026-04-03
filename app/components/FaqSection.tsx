@@ -12,7 +12,7 @@ interface FaqItemProps {
 
 function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
   return (
-    <div className="bg-white rounded-[50px] overflow-hidden">
+    <div className="bg-white rounded-[50px] overflow-clip self-start">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-1 md:gap-7 pl-4 md:pl-8 pr-2.5 py-2.5"
@@ -28,41 +28,25 @@ function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
           &gt;
         </span>
       </button>
-      {isOpen && (
-        <div className="px-8 pb-6">
-          <p className="font-poppins-regular text-lg text-dark-green">
-            {answer}
-          </p>
+      <div
+        className={`grid transition-[grid-template-rows] duration-500 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+      >
+        <div className="overflow-hidden">
+          <div
+            className="font-poppins-regular text-lg text-dark-green px-8 pb-6"
+            dangerouslySetInnerHTML={{ __html: answer }}
+          />
         </div>
-      )}
+      </div>
     </div>
   );
 }
 
-const FAQ_ITEMS = [
-  {
-    question: "What forms of payment do you accept?",
-    answer:
-      "We accept cash, debit cards, and CanPay. We do not accept traditional credit cards at this time.",
-  },
-  {
-    question: "Do I need a medical card?",
-    answer:
-      "No. Sweetleaves is a recreational dispensary open to all adults 21 and over. No medical card is required.",
-  },
-  {
-    question: "What should I bring?",
-    answer:
-      "Just a valid government-issued photo ID showing you are 21 or older. We accept driver\u2019s licenses, passports, and state IDs.",
-  },
-  {
-    question: "Can I shop online?",
-    answer:
-      "Yes! You can browse our full menu and place an order for in-store pickup through our online ordering system.",
-  },
-];
+interface Props {
+  faqs: { question: string; answer: string }[];
+}
 
-export default function FaqSection() {
+export default function FaqSection({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -72,14 +56,14 @@ export default function FaqSection() {
           Common Questions
         </h2>
         <Link
-          href="/learn"
+          href="/faq"
           className="hidden md:flex bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity"
         >
           View all FAQ
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-2.5 md:gap-5 w-full">
-        {FAQ_ITEMS.map((item, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-5 w-full">
+        {faqs.map((item, i) => (
           <FaqItem
             key={item.question}
             question={item.question}
@@ -90,7 +74,7 @@ export default function FaqSection() {
         ))}
       </div>
       <Link
-        href="/learn"
+        href="/faq"
         className="md:hidden bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity w-full text-center"
       >
         View all FAQ

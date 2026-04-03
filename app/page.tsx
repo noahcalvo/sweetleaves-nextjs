@@ -9,6 +9,7 @@ import {
   GardenClubPromo,
 } from "./components/home";
 import FaqSection from "./components/FaqSection";
+import { getCommonFaqs } from "@/lib/faq";
 
 export const metadata: Metadata = {
   title: "Sweetleaves | Cannabis Dispensary in Minneapolis",
@@ -16,7 +17,9 @@ export const metadata: Metadata = {
     "Recreational cannabis dispensary in Minneapolis, Minnesota. Shop flower, edibles, vaporizers, concentrates, and more. Visit us in the North Loop.",
 };
 
-export default function Home() {
+export default async function Home() {
+  const commonFaqs = await getCommonFaqs();
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="relative z-10 max-w-[1365px] mx-auto px-4 md:px-6 py-5 md:py-8 flex flex-col gap-5 lg:gap-[30px]">
@@ -38,7 +41,7 @@ export default function Home() {
           src="/home/store-interior.png"
           alt="Sweetleaves dispensary interior"
         />
-        <FaqSection />
+        <FaqSection faqs={commonFaqs} />
       </div>
     </div>
   );

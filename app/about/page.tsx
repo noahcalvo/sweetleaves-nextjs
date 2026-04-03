@@ -4,6 +4,7 @@ import FindUs from "./components/FindUs";
 import HowToShop from "./components/HowToShop";
 import WhatWeStandFor from "./components/WhatWeStandFor";
 import FaqSection from "../components/FaqSection";
+import { getCommonFaqs } from "@/lib/faq";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
     "Learn about Sweetleaves, a recreational cannabis dispensary in North Loop Minneapolis. Cannabis for real people.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const commonFaqs = await getCommonFaqs();
+
   return (
     <div className="relative min-h-screen">
       <div className="relative z-10 max-w-[1365px] mx-auto px-4 md:px-6 py-5 md:py-8 flex flex-col gap-5 lg:gap-[30px]">
@@ -24,7 +27,7 @@ export default function AboutPage() {
         <FindUs />
         <HowToShop />
         <WhatWeStandFor />
-        <FaqSection />
+        <FaqSection faqs={commonFaqs} />
       </div>
     </div>
   );

@@ -163,14 +163,14 @@ export default function AgeGate({
                     ref={yesButtonRef}
                     type="button"
                     onClick={handleYes}
-                    className="w-full rounded-full bg-light-gold border border-light-gold py-3 text-sm font-semibold text-dark-green transition hover:bg-orange-glow hover:border-orange-glow hover:text-white"
+                    className="w-full rounded-full bg-light-gold border border-light-gold py-3 text-sm font-semibold text-dark-green transition hover:bg-orange-glow hover:border-orange-glow hover:text-white outline-none"
                   >
                     YES, I&apos;M 21+
                   </button>
                   <button
                     type="button"
                     onClick={handleNo}
-                    className="w-full rounded-full border border-light-gold py-3 text-sm font-semibold text-light-gold transition hover:bg-orange-glow hover:border-orange-glow hover:text-white"
+                    className="w-full rounded-full border border-light-gold py-3 text-sm font-semibold text-light-gold transition hover:bg-orange-glow hover:border-orange-glow hover:text-white outline-none"
                   >
                     NO, I&apos;M NOT 21+
                   </button>
