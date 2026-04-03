@@ -25,6 +25,7 @@ export default function BlogCard({ post }: Props) {
             src={post.featuredImage.url}
             alt={post.featuredImage.alt || post.title}
             fill
+            sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover"
           />
         ) : (

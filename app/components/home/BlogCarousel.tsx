@@ -46,6 +46,7 @@ export default function BlogCarousel({ posts }: Props) {
                   src={p.image}
                   alt={p.title}
                   fill
+                  sizes="(max-width: 608px) 100vw, 608px"
                   className="object-cover"
                 />
               ) : (

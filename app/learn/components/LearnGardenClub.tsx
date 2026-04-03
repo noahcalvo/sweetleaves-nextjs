@@ -6,11 +6,12 @@ export default function LearnGardenClub() {
     <section className="bg-dark-green rounded-[40px] overflow-hidden w-full">
       {/* Mobile */}
       <div className="flex flex-col gap-[15px] items-center justify-center px-[38px] py-[37px] md:hidden">
-        <Link href="/rewards" className="relative w-[340px] h-[67px]">
+        <Link href="/loyalty" className="relative w-[340px] h-[67px]">
           <Image
             src="/rewards/garden-club-text.png"
             alt="Garden Club"
             fill
+            sizes="340px"
             className="object-contain"
           />
         </Link>
@@ -27,7 +28,7 @@ export default function LearnGardenClub() {
         </div>
 
         <Link
-          href="/rewards#signup"
+          href="/loyalty#signup"
           className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-[25px] py-[14px] rounded-full hover:opacity-90 transition-opacity w-[342px] h-[50px] flex items-center justify-center"
         >
           Start Earning
@@ -38,6 +39,7 @@ export default function LearnGardenClub() {
             src="/rewards/garden-club-photo.jpg"
             alt="Sweetleaves store event"
             fill
+            sizes="340px"
             className="object-cover"
           />
         </div>
@@ -46,11 +48,12 @@ export default function LearnGardenClub() {
       {/* Desktop */}
       <div className="hidden md:flex gap-[60px] items-center justify-end px-5 py-2.5 min-h-[372px]">
         <div className="flex flex-col gap-5 items-start w-[585px]">
-          <Link href="/rewards" className="relative w-[525px] h-[104px]">
+          <Link href="/loyalty" className="relative w-[525px] h-[104px]">
             <Image
               src="/rewards/garden-club-text.png"
               alt="Garden Club"
               fill
+              sizes="525px"
               className="object-contain"
             />
           </Link>
@@ -61,7 +64,7 @@ export default function LearnGardenClub() {
           </p>
 
           <Link
-            href="/rewards#signup"
+            href="/loyalty#signup"
             className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-[25px] py-[14px] rounded-full hover:opacity-90 transition-opacity w-[250px] h-[50px] flex items-center justify-center"
           >
             Sign Up
@@ -73,6 +76,7 @@ export default function LearnGardenClub() {
             src="/rewards/garden-club-photo.jpg"
             alt="Sweetleaves store event"
             fill
+            sizes="625px"
             className="object-cover"
           />
         </div>

@@ -66,14 +66,17 @@ export default function Footer() {
           </h3>
           <nav className="flex flex-col items-center md:items-start">
             <Link
-              href="/rewards"
+              href="/loyalty"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
               Garden Club
             </Link>
-            <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
+            <Link
+              href="/faq"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
               FAQ
-            </span>
+            </Link>
             <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
               Events
             </span>
@@ -109,13 +112,27 @@ export default function Footer() {
             Hours
           </h3>
           <div className="flex flex-col items-center md:items-start">
-            <span className="font-poppins-regular text-lg text-white">Monday: 10am-9pm</span>
-            <span className="font-poppins-regular text-lg text-white">Tuesday: 10am-9pm</span>
-            <span className="font-poppins-regular text-lg text-white">Wednesday: 10am-9pm</span>
-            <span className="font-poppins-regular text-lg text-white">Thursday: 10am-10pm</span>
-            <span className="font-poppins-regular text-lg text-white">Friday: 10am-10pm</span>
-            <span className="font-poppins-regular text-lg text-white">Saturday: 9am-10pm</span>
-            <span className="font-poppins-regular text-lg text-white">Sunday: 11am-6pm</span>
+            <span className="font-poppins-regular text-lg text-white">
+              Monday: 10am-9pm
+            </span>
+            <span className="font-poppins-regular text-lg text-white">
+              Tuesday: 10am-9pm
+            </span>
+            <span className="font-poppins-regular text-lg text-white">
+              Wednesday: 10am-9pm
+            </span>
+            <span className="font-poppins-regular text-lg text-white">
+              Thursday: 10am-10pm
+            </span>
+            <span className="font-poppins-regular text-lg text-white">
+              Friday: 10am-10pm
+            </span>
+            <span className="font-poppins-regular text-lg text-white">
+              Saturday: 9am-10pm
+            </span>
+            <span className="font-poppins-regular text-lg text-white">
+              Sunday: 11am-6pm
+            </span>
           </div>
         </div>
 
@@ -176,7 +193,7 @@ export default function Footer() {
               </a>
             </div>
             <Link
-              href="/rewards"
+              href="/loyalty"
               className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity text-center w-full md:w-auto max-w-[350px]"
             >
               Sign Up For Rewards

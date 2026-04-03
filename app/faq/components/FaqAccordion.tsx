@@ -1,5 +1,3 @@
-"use client";
-
 import type { FaqSection } from "@/lib/faq";
 import FaqItem from "./FaqItem";
 
@@ -23,7 +21,6 @@ export default function FaqAccordion({ sections }: Props) {
                 answer={faq.answer}
               />
             ))}
-            <div/>
           </div>
         ))}
       </div>

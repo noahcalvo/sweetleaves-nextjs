@@ -48,6 +48,7 @@ export default async function BlogPostPage({ params }: Props) {
               src={post.featuredImage.url}
               alt={post.featuredImage.alt || post.title}
               fill
+              sizes="(max-width: 1366px) 100vw, 1132px"
               className="object-cover"
               priority
             />
