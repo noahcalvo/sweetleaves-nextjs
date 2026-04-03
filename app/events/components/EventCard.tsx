@@ -6,18 +6,27 @@ interface Props {
   post: WPPost;
 }
 
-export default function BlogCard({ post }: Props) {
-  const date = new Date(post.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "America/Chicago",
-  });
-  const category = post.categories[0]?.name;
+export default function EventCard({ post }: Props) {
+  let date: string;
+  if (post.eventDate) {
+    const [y, m, d] = post.eventDate.split("-").map(Number);
+    date = new Date(y, m - 1, d).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  } else {
+    date = new Date(post.date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "America/Chicago",
+    });
+  }
 
   return (
     <Link
-      href={`/learn/${post.slug}`}
+      href={`/events/${post.slug}`}
       className="bg-white rounded-[30px] p-[19px] flex flex-col gap-[22px] hover:shadow-lg transition-shadow"
     >
       <div className="relative w-full aspect-[16/9] rounded-[10px] overflow-hidden">
@@ -37,11 +46,8 @@ export default function BlogCard({ post }: Props) {
         <h2 className="font-poppins-bold text-[30px] md:text-[35px] text-dark leading-tight">
           {post.title}
         </h2>
-        {(date || category) && (
-          <p className="font-poppins text-[18px] text-sage italic">
-            {date}
-            {category && ` | ${category}`}
-          </p>
+        {date && (
+          <p className="font-poppins text-[18px] text-sage italic">{date}</p>
         )}
         <div
           className="font-poppins-regular text-[18px] text-dark line-clamp-4"

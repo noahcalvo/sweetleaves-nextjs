@@ -11,6 +11,7 @@ export interface WPPost {
   excerpt: string;
   date: string;
   content: string;
+  eventDate: string | null;
   featuredImage: {
     url: string;
     alt: string;
@@ -51,6 +52,9 @@ const POST_LIST_FIELDS = `
   slug
   excerpt
   date
+  eventFields {
+    eventDate
+  }
   featuredImage {
     node {
       sourceUrl
@@ -171,6 +175,7 @@ function mapPost(node: any): WPPost {
     excerpt: node.excerpt ?? "",
     date: node.date ?? "",
     content: node.content ?? "",
+    eventDate: node.eventFields?.eventDate ?? null,
     featuredImage: img
       ? { url: img.sourceUrl ?? "", alt: img.altText ?? "" }
       : null,

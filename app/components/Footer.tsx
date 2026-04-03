@@ -77,9 +77,12 @@ export default function Footer() {
             >
               FAQ
             </Link>
-            <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
+            <Link
+              href="/events"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
               Events
-            </span>
+            </Link>
             <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
               Careers
             </span>
