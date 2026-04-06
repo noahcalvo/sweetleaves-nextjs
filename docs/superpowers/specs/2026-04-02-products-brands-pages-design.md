@@ -29,7 +29,7 @@ interface CatalogEntry {
   heroImage: string;         // path in public/products/ or public/brands/
   headline: string;          // H1 text
   accordionItems: AccordionItem[];
-  dutchieFilter: string;     // Dutchie embed URL param for filtering
+  iframeUrl: string;          // full Dutchie embed/iframe URL for this page
   subheadline: string;       // H2 text
   body: string;              // closing copy block (HTML string)
   metaDescription: string;   // SEO meta description
@@ -84,14 +84,14 @@ Data files:
 
 ## Template: Detail Page (`CatalogPageTemplate`)
 
-Shared component at `app/components/CatalogPageTemplate.tsx`. Server component with a client accordion child.
+Shared component at `app/components/CatalogPageTemplate.tsx`. Server component with 0–n client accordion children (driven by `accordionItems` array length).
 
 ### Section Order
 
 1. **Hero image** — full-width, rounded corners (`rounded-[30px] md:rounded-[40px]`), uses `next/image` with `fill` + `object-cover`, aspect ratio ~16:9 on desktop, ~4:3 on mobile
 2. **H1** — `font-poppins-bold text-[35px] md:text-[55px] text-dark-green leading-tight`
 3. **Accordion copy block** — reuses the existing `FaqItem` expand/collapse pattern (orange circle +/− button, grid-rows animation). Each accordion item has a `title` (bold heading) and `content` (HTML body). Single-column layout, full width.
-4. **Dutchie embed** — filtered version of the existing `DutchieEmbed` component, accepting a `filter` prop that appends query params to the embed script URL
+4. **Dutchie embed** — an iframe loaded from the entry's `iframeUrl`. Simple `<iframe>` wrapper component, no script injection needed.
 5. **H2** — `font-poppins-bold text-[25px] md:text-[35px] text-dark-green leading-tight`
 6. **Copy block** — `font-poppins-regular text-[18px] text-dark-green leading-[1.6]`, rendered as HTML
 
@@ -110,30 +110,23 @@ Both `/products` and `/brands` get an index page.
 - Each card: hero image thumbnail + name overlay, links to detail page
 - Card style: `rounded-[30px]` with image, name as white text with dark overlay at bottom, hover scale effect
 
-## Dutchie Embed Filtering
+## Dutchie Embed
 
-The existing `DutchieEmbed` component at `app/shop/components/DutchieEmbed.tsx` loads:
-```
-https://dutchie.com/api/v2/embedded-menu/65ae80f7dbecc7000934725c.js
-```
+Each catalog entry stores a full `iframeUrl`. The template renders this in a simple iframe wrapper — no script injection or URL construction needed. This is simpler than the existing `DutchieEmbed` script approach and lets each page point to whatever Dutchie URL is appropriate.
 
-For filtered embeds, Dutchie supports query parameters on the embed URL. A new `FilteredDutchieEmbed` component will accept a `filter` string prop and append it to the base URL:
-```
-https://dutchie.com/api/v2/embedded-menu/65ae80f7dbecc7000934725c.js?category=flower
-```
-
-This component lives at `app/components/FilteredDutchieEmbed.tsx` since it's shared across products and brands.
+The iframe component lives at `app/components/DutchieIframe.tsx` since it's shared across products and brands. It's a server component (just renders an `<iframe>`).
 
 ## Accordion Component
 
-A new `CatalogAccordion` client component at `app/components/CatalogAccordion.tsx`. Visually matches the existing `FaqItem` pattern:
+Genericize the existing `FaqItem` into a shared `AccordionItem` client component at `app/components/AccordionItem.tsx`. Props become `title`/`content` instead of `question`/`answer`. Update all existing FAQ usages to use the renamed component.
+
+Visual pattern (unchanged):
 - Orange circle toggle button
 - Grid-rows expand/collapse animation
 - `font-poppins-bold text-[20px]` for titles
 - `font-poppins-regular text-[18px]` for content
-- Single item open at a time (same as FAQ)
 
-This is a separate component from `FaqItem` because the data shape differs (title/content vs question/answer) and usage context is different, but the visual pattern is identical.
+The catalog template and FAQ pages both consume this single component.
 
 ## File Structure
 
@@ -141,8 +134,8 @@ This is a separate component from `FaqItem` because the data shape differs (titl
 app/
   components/
     CatalogPageTemplate.tsx     # Shared detail page template (server)
-    CatalogAccordion.tsx        # Accordion for catalog pages (client)
-    FilteredDutchieEmbed.tsx    # Dutchie embed with filter param (client)
+    AccordionItem.tsx           # Generic accordion item (client, replaces FaqItem)
+    DutchieIframe.tsx           # Iframe wrapper for Dutchie URLs (server)
   products/
     page.tsx                    # Product index page
     [slug]/
