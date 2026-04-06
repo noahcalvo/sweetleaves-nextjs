@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 interface Props {
-  question: string;
-  answer: string;
+  title: string;
+  content: string;
 }
 
-export default function FaqItem({ question, answer }: Props) {
+export default function AccordionItem({ title, content }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ export default function FaqItem({ question, answer }: Props) {
           {open ? "−" : "+"}
         </span>
         <span className="font-poppins-bold text-[20px] text-dark-green leading-none pt-[10px]">
-          {question}
+          {title}
         </span>
       </button>
       <div
@@ -29,7 +29,7 @@ export default function FaqItem({ question, answer }: Props) {
         <div className="overflow-hidden">
           <div
             className="font-poppins-regular text-[18px] text-dark-green leading-[1.6] pl-[49px] pt-[10px]"
-            dangerouslySetInnerHTML={{ __html: answer }}
+            dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>
       </div>

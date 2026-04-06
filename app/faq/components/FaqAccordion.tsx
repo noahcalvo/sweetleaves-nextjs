@@ -1,5 +1,5 @@
 import type { FaqSection } from "@/lib/faq";
-import FaqItem from "./FaqItem";
+import AccordionItem from "@/app/components/AccordionItem";
 
 interface Props {
   sections: FaqSection[];
@@ -15,10 +15,10 @@ export default function FaqAccordion({ sections }: Props) {
               {section.name}
             </h2>
             {section.faqs.map((faq) => (
-              <FaqItem
+              <AccordionItem
                 key={faq.id}
-                question={faq.question}
-                answer={faq.answer}
+                title={faq.question}
+                content={faq.answer}
               />
             ))}
           </div>
