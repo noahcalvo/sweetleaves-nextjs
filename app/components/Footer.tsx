@@ -196,7 +196,7 @@ export default function Footer() {
               </a>
             </div>
             <Link
-              href="/loyalty"
+              href="/loyalty#signup"
               className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity text-center w-full md:w-auto max-w-[350px]"
             >
               Sign Up For Rewards
