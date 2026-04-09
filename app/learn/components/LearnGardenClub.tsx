@@ -5,7 +5,7 @@ export default function LearnGardenClub() {
   return (
     <section className="bg-dark-green rounded-[40px] overflow-hidden w-full">
       {/* Mobile */}
-      <div className="flex flex-col gap-[15px] items-center justify-center px-[38px] py-[37px] md:hidden">
+      <div className="flex flex-col gap-[15px] items-center justify-center px-[38px] py-[37px] lg:hidden">
         <Link href="/loyalty" className="relative w-[340px] h-[67px]">
           <Image
             src="/rewards/garden-club-text.png"
@@ -46,9 +46,9 @@ export default function LearnGardenClub() {
       </div>
 
       {/* Desktop */}
-      <div className="hidden md:flex gap-[60px] items-center justify-end px-5 py-2.5 min-h-[372px]">
-        <div className="flex flex-col gap-5 items-start w-[585px]">
-          <Link href="/loyalty" className="relative w-[525px] h-[104px]">
+      <div className="hidden lg:flex gap-[60px] items-center justify-end px-5 py-2.5 min-h-[372px]">
+        <div className="flex flex-col gap-5 items-start flex-1 min-w-0">
+          <Link href="/loyalty" className="relative w-full max-w-[525px] h-[104px]">
             <Image
               src="/rewards/garden-club-text.png"
               alt="Garden Club"
@@ -58,7 +58,7 @@ export default function LearnGardenClub() {
             />
           </Link>
 
-          <p className="font-poppins-regular text-[18px] text-white w-[472px]">
+          <p className="font-poppins-regular text-[18px] text-white max-w-[472px]">
             Earn points with every purchase and get exclusive access to new
             products and giveaways.
           </p>
@@ -71,12 +71,12 @@ export default function LearnGardenClub() {
           </Link>
         </div>
 
-        <div className="relative w-[625px] h-[330px] rounded-[30px] overflow-hidden shrink-0">
+        <div className="relative w-[40%] min-w-[280px] aspect-[625/330] rounded-[30px] overflow-hidden">
           <Image
             src="/rewards/garden-club-photo.jpg"
             alt="Sweetleaves store event"
             fill
-            sizes="625px"
+            sizes="(min-width: 1280px) 625px, 40vw"
             className="object-cover"
           />
         </div>

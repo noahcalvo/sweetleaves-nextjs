@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SignInButton from "./SignInButton";
 import { NAV_LINKS } from "./links";
 
 export default function MobileNav() {
@@ -83,9 +82,6 @@ export default function MobileNav() {
                 {label}
               </Link>
             ))}
-            <div className="pt-1 pb-2">
-              <SignInButton />
-            </div>
           </div>
         </div>
       </div>
