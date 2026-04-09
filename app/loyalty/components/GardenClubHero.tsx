@@ -22,8 +22,9 @@ export default function GardenClubHero() {
         Loyalty Perks &amp; Points
       </h1>
       <Link
-        href="/loyalty#signup"
+        href="https://3585.aiqapps.com/w/login?ck="
         className="hidden md:flex mt-4 bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity"
+        target="_blank"
       >
         Check Your Rewards
       </Link>

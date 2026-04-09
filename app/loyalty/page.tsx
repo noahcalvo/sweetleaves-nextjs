@@ -23,7 +23,7 @@ export default async function RewardsPage() {
           <div className="flex-1 min-w-0">
             <PointsInfo />
           </div>
-          <div className="lg:w-[650px] lg:shrink-0">
+          <div className="flex-1">
             <SignUpSection />
           </div>
         </div>
