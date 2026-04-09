@@ -7,9 +7,12 @@ import { getWPData } from "./wp";
 export interface DealSlide {
   url: string;
   alt: string;
-  width: number;
-  height: number;
 }
+
+type DealNode = {
+  title: string;
+  featuredImage: { node: { sourceUrl: string } } | null;
+};
 
 // ---------------------------------------------------------------------------
 // GraphQL
@@ -23,10 +26,6 @@ const GET_DEALS_QUERY = `
         featuredImage {
           node {
             sourceUrl
-            mediaDetails {
-              width
-              height
-            }
           }
         }
       }
@@ -40,16 +39,11 @@ const GET_DEALS_QUERY = `
 
 export async function getDealsBannerSlides(): Promise<DealSlide[]> {
   const data = await getWPData(GET_DEALS_QUERY);
-  const nodes: any[] = data?.deals?.nodes ?? [];
+  const nodes: DealNode[] = data?.deals?.nodes ?? [];
   return nodes
-    .filter((node: any) => node?.featuredImage?.node?.sourceUrl)
-    .map((node: any) => {
-      const img = node.featuredImage.node;
-      return {
-        url: img.sourceUrl,
-        alt: node.title ?? "",
-        width: img.mediaDetails?.width ?? 1280,
-        height: img.mediaDetails?.height ?? 320,
-      };
-    });
+    .filter((node) => node?.featuredImage?.node?.sourceUrl)
+    .map((node) => ({
+      url: node.featuredImage!.node.sourceUrl,
+      alt: node.title ?? "",
+    }));
 }
