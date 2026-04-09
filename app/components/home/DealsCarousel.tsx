@@ -21,8 +21,13 @@ export default function DealsCarousel({ slides }: Props) {
     return () => clearInterval(interval);
   }, [index, slides.length]);
 
+  const next = () => setIndex((i) => (i + 1) % slides.length);
+
   return (
-    <div className="relative h-[273px] md:h-[320px] w-full max-w-[1280px] rounded-[40px] overflow-hidden">
+    <div
+      className="relative h-[273px] md:h-[320px] w-full max-w-[1280px] rounded-[40px] overflow-hidden cursor-pointer"
+      onClick={slides.length > 1 ? next : undefined}
+    >
       <Image
         src={slides[index].url}
         alt={slides[index].alt}
@@ -34,13 +39,11 @@ export default function DealsCarousel({ slides }: Props) {
       {slides.length > 1 && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
           {slides.map((_, i) => (
-            <button
+            <div
               key={i}
-              onClick={() => setIndex(i)}
               className={`w-2.5 h-2.5 rounded-full transition-colors ${
                 i === index ? "bg-ivory" : "bg-ivory/40"
               }`}
-              aria-label={`Go to slide ${i + 1}`}
             />
           ))}
         </div>
