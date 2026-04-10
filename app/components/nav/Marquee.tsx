@@ -1,16 +1,14 @@
 import Image from "next/image";
+import { getMarqueeItems } from "@/lib/marquee";
 
-const ITEMS = [
-  "Legal cannabis available now",
-  "Shop online for curbside pickup or visit us in-store",
-  "Open Daily",
-  "EARN Garden Club rewards",
-];
+interface MarqueeContentProps {
+  items: string[];
+}
 
-function MarqueeContent() {
+function MarqueeContent({ items }: MarqueeContentProps) {
   return (
     <>
-      {ITEMS.map((text) => (
+      {items.map((text) => (
         <span key={text} className="flex items-center gap-[15px] shrink-0">
           <span className="font-poppins-regular text-[20px] text-dark-green uppercase whitespace-nowrap">
             {text}
@@ -28,12 +26,16 @@ function MarqueeContent() {
   );
 }
 
-export default function Marquee() {
+export default async function Marquee() {
+  const items = await getMarqueeItems();
+
+  if (items.length === 0) return null;
+
   return (
     <div className="w-full h-[50px] md:h-[75px] overflow-hidden flex items-center">
       <div className="flex gap-[15px] animate-marquee">
-        <MarqueeContent />
-        <MarqueeContent />
+        <MarqueeContent items={items} />
+        <MarqueeContent items={items} />
       </div>
     </div>
   );
