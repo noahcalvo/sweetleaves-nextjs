@@ -1,5 +1,10 @@
-export default function DealsBanner() {
-  return (
-    <div className="bg-sage/30 rounded-[40px] h-[273px] md:h-[320px] w-full" />
-  );
+import { getDealsBannerSlides } from "@/lib/deals";
+import DealsCarousel from "./DealsCarousel";
+
+export default async function DealsBanner() {
+  const slides = await getDealsBannerSlides();
+
+  if (slides.length === 0) return null;
+
+  return <DealsCarousel slides={slides} />;
 }
