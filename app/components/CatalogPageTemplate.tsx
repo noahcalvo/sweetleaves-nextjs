@@ -13,7 +13,7 @@ export default function CatalogPageTemplate({ entry }: Props) {
         {entry.headline}
       </h1>
 
-      <DutchieEmbed category={entry.category} />
+      <DutchieEmbed category={entry.category} brand={entry.brand} />
 
       {entry.subheadline && (
         <h2 className="font-poppins-bold text-[25px] md:text-[35px] text-dark-green leading-tight">

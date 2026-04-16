@@ -4,6 +4,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "sweetleaves",
     name: "Sweetleaves",
+    brand: "Sweetleaves",
     headline: "Sweetleaves",
     category: "sweetleaves",
     subheadline: "Shop Sweetleaves at Sweetleaves",
@@ -164,6 +165,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "wyld",
     name: "WYLD",
+    brand: "WYLD",
     headline: "WYLD",
     category: "wyld",
     subheadline: "Shop WYLD at Sweetleaves",
@@ -174,6 +176,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "rythm",
     name: "RYTHM",
+    brand: "RYTHM",
     headline: "RYTHM",
     category: "rythm",
     subheadline: "Shop RYTHM at Sweetleaves",
@@ -184,6 +187,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "dogwalkers",
     name: "Dogwalkers",
+    brand: "Dogwalkers",
     headline: "Dogwalkers",
     category: "dogwalkers",
     subheadline: "Shop Dogwalkers at Sweetleaves",
@@ -194,6 +198,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "good-green",
     name: "Good Green",
+    brand: "Good Green",
     headline: "Good Green",
     category: "good-green",
     subheadline: "Shop Good Green at Sweetleaves",
@@ -204,6 +209,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "grasslandz",
     name: "Grasslandz",
+    brand: "Grasslandz",
     headline: "Grasslandz",
     category: "grasslandz",
     subheadline: "Shop Grasslandz at Sweetleaves",
@@ -214,6 +220,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "nebula",
     name: "Nebula",
+    brand: "Nebula",
     headline: "Nebula",
     category: "nebula",
     subheadline: "Shop Nebula at Sweetleaves",
@@ -224,6 +231,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "lakeside-cannabis-co",
     name: "Lakeside Cannabis Co.",
+    brand: "Lakeside Cannabis Co.",
     headline: "Lakeside Cannabis Co.",
     category: "lakeside-cannabis-co",
     subheadline: "Shop Lakeside Cannabis Co. at Sweetleaves",
