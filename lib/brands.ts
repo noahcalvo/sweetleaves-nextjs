@@ -4,7 +4,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "sweetleaves",
     name: "Sweetleaves",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "Sweetleaves" },
+    dutchieParams: { "dtche[path]": "brands/sweetleaves" },
     headline: "Sweetleaves",
     category: "sweetleaves",
     subheadline: "Shop Sweetleaves at Sweetleaves",
@@ -165,7 +165,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "wyld",
     name: "WYLD",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "WYLD" },
+    dutchieParams: { "dtche[path]": "brands/wyld" },
     headline: "WYLD",
     category: "wyld",
     subheadline: "Shop WYLD at Sweetleaves",
@@ -176,7 +176,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "rythm",
     name: "RYTHM",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "RYTHM" },
+    dutchieParams: { "dtche[path]": "brands/rythm" },
     headline: "RYTHM",
     category: "rythm",
     subheadline: "Shop RYTHM at Sweetleaves",
@@ -187,7 +187,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "dogwalkers",
     name: "Dogwalkers",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "Dogwalkers" },
+    dutchieParams: { "dtche[path]": "brands/dogwalkers" },
     headline: "Dogwalkers",
     category: "dogwalkers",
     subheadline: "Shop Dogwalkers at Sweetleaves",
@@ -198,7 +198,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "good-green",
     name: "Good Green",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "Good Green" },
+    dutchieParams: { "dtche[path]": "brands/good-green" },
     headline: "Good Green",
     category: "good-green",
     subheadline: "Shop Good Green at Sweetleaves",
@@ -209,7 +209,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "grasslandz",
     name: "Grasslandz",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "Grasslandz" },
+    dutchieParams: { "dtche[path]": "brands/grasslandz" },
     headline: "Grasslandz",
     category: "grasslandz",
     subheadline: "Shop Grasslandz at Sweetleaves",
@@ -220,7 +220,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "nebula",
     name: "Nebula",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "Nebula" },
+    dutchieParams: { "dtche[path]": "brands/nebula" },
     headline: "Nebula",
     category: "nebula",
     subheadline: "Shop Nebula at Sweetleaves",
@@ -231,7 +231,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "lakeside-cannabis-co",
     name: "Lakeside Cannabis Co.",
-    dutchieParams: { "dtche[path]": "brands", "dtche[brands]": "Lakeside Cannabis Co." },
+    dutchieParams: { "dtche[path]": "brands/lakeside-cannabis-co" },
     headline: "Lakeside Cannabis Co.",
     category: "lakeside-cannabis-co",
     subheadline: "Shop Lakeside Cannabis Co. at Sweetleaves",

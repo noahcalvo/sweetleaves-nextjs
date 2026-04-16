@@ -12,6 +12,16 @@ export default function DutchieEmbed({ dutchieParams }: Props) {
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    // Push a sentinel entry so Back has somewhere to go within the embed
+    // rather than navigating the outer page. Re-push on every popstate to
+    // keep the trap active for as long as the embed is mounted.
+    window.history.pushState(null, "");
+    const onPopState = () => window.history.pushState(null, "");
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  useEffect(() => {
     if (!rootRef.current) return;
     const container = rootRef.current;
 
