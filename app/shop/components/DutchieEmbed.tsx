@@ -2,7 +2,11 @@
 
 import { useEffect, useRef } from "react";
 
-export default function DutchieEmbed() {
+interface Props {
+  category?: string;
+}
+
+export default function DutchieEmbed({ category }: Props) {
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
