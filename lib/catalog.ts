@@ -3,10 +3,11 @@ export interface CatalogEntry {
   name: string;
   navLabel?: string;
   headline: string;
-  // For product pages — maps to ?dtche[category]=<category>
   category?: string;
-  // For brand pages — maps to ?dtche[brands]=<brand> (must match Dutchie's exact display name)
-  brand?: string;
+  // Dutchie embed URL params, written to window.location.search before the script loads.
+  // Keys are full param names e.g. "dtche[category]", "dtche[path]", "dtche[subcategories]".
+  // Must match Dutchie's exact values — verify by browsing the live embed and watching the URL.
+  dutchieParams?: Record<string, string>;
   subheadline: string;
   body: string;
   metaDescription: string;

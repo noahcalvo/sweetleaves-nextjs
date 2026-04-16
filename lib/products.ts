@@ -4,8 +4,10 @@ export const products: CatalogEntry[] = [
   {
     slug: "flower",
     name: "Flower",
+    navLabel: "Flower",
     headline: "Flower",
     category: "flower",
+    dutchieParams: { "dtche[category]": "flower" },
     subheadline: "Shop Flower at Sweetleaves",
     body: "<p>Join The Garden Club to earn points, unlock exclusive perks, and enjoy special offers every time you shop at Sweetleaves.</p>",
     metaDescription:
@@ -14,8 +16,10 @@ export const products: CatalogEntry[] = [
   {
     slug: "pre-rolls",
     name: "Pre-Rolls",
+    navLabel: "Pre-Rolls",
     headline: "Pre-Rolls",
     category: "pre-rolls",
+    dutchieParams: { "dtche[category]": "pre-rolls" },
     subheadline: "Shop Pre-Rolls at Sweetleaves",
     body: "<p>At Sweetleaves, we offer a smooth entry point into the state's growing cannabis scene.</p>",
     metaDescription:
@@ -24,8 +28,10 @@ export const products: CatalogEntry[] = [
   {
     slug: "edibles",
     name: "Edibles",
+    navLabel: "Edibles",
     headline: "Edibles & Gummies",
     category: "edibles",
+    dutchieParams: { "dtche[category]": "edibles", "dtche[subcategories]": "gummies" },
     subheadline: "Shop Edibles at Sweetleaves",
     body: "<p>Sweetleaves is where dreams become sweeter.</p>",
     metaDescription:
@@ -37,6 +43,7 @@ export const products: CatalogEntry[] = [
     navLabel: "Beverages",
     headline: "THC Drinks",
     category: "cannabis-beverages",
+    dutchieParams: { "dtche[path]": "collections/beverages" },
     subheadline: "Shop Cannabis Beverages at Sweetleaves",
     body: "<p>Sweetleaves is where your dreams become sweeter.</p>",
     metaDescription:
@@ -48,6 +55,7 @@ export const products: CatalogEntry[] = [
     navLabel: "Vapes",
     headline: "Disposable Vapes & Carts",
     category: "vaporizers",
+    dutchieParams: { "dtche[category]": "vaporizers" },
     subheadline: "Shop Vapes & Cartridges at Sweetleaves",
     body: "<p>At Sweetleaves, we make it easy to step into Minnesota's evolving cannabis culture with trusted vape options you can rely on.</p>",
     metaDescription:
@@ -66,8 +74,10 @@ export const products: CatalogEntry[] = [
   {
     slug: "cbd",
     name: "CBD",
+    navLabel: "CBD",
     headline: "CBD Drinks & Gummies",
     category: "cbd",
+    dutchieParams: { "dtche[category]": "cbd" },
     subheadline: "Shop CBD at Sweetleaves",
     body: "<p>Open seven days per week in the North Loop, Sweetleaves is your source for helpful information, personalized guidance, and outstanding integrity of products.</p>",
     metaDescription:
