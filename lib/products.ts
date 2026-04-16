@@ -34,6 +34,7 @@ export const products: CatalogEntry[] = [
   {
     slug: "cannabis-beverages",
     name: "Cannabis Beverages",
+    navLabel: "Beverages",
     headline: "THC Drinks",
     category: "cannabis-beverages",
     subheadline: "Shop Cannabis Beverages at Sweetleaves",
@@ -44,6 +45,7 @@ export const products: CatalogEntry[] = [
   {
     slug: "vaporizers",
     name: "Disposable Vapes & Carts",
+    navLabel: "Vapes",
     headline: "Disposable Vapes & Carts",
     category: "vaporizers",
     subheadline: "Shop Vapes & Cartridges at Sweetleaves",

@@ -1,32 +1,24 @@
+import { products } from "@/lib/products";
+import { brands } from "@/lib/brands";
+import type { CatalogEntry } from "@/lib/catalog";
+
 type SimpleLink = { href: string; label: string; items?: never };
 type DropdownLink = { label: string; items: { href: string; label: string }[]; href?: never };
 export type NavItem = SimpleLink | DropdownLink;
 
+const PRODUCT_SLUGS = ["flower", "vaporizers", "pre-rolls", "edibles", "cannabis-beverages", "cbd"];
+const BRAND_SLUGS = ["sweetleaves", "rythm", "good-green", "dogwalkers", "lakeside-cannabis-co", "nebula", "grasslandz", "wyld"];
+
+function toNavItems(entries: CatalogEntry[], slugs: string[], basePath: string) {
+  return slugs.map((slug) => {
+    const entry = entries.find((e) => e.slug === slug);
+    return { href: `${basePath}/${slug}`, label: entry?.navLabel ?? entry?.name ?? slug };
+  });
+}
+
 export const NAV_LINKS: NavItem[] = [
-  {
-    label: "Products",
-    items: [
-      { href: "/products/flower", label: "Flower" },
-      { href: "/products/vaporizers", label: "Vapes" },
-      { href: "/products/pre-rolls", label: "Pre-Rolls" },
-      { href: "/products/edibles", label: "Edibles" },
-      { href: "/products/cannabis-beverages", label: "Beverages" },
-      { href: "/products/cbd", label: "CBD" },
-    ],
-  },
-  {
-    label: "Brands",
-    items: [
-      { href: "/brands/sweetleaves", label: "Sweetleaves" },
-      { href: "/brands/rythm", label: "RYTHM" },
-      { href: "/brands/good-green", label: "Good Green" },
-      { href: "/brands/dogwalkers", label: "Dogwalkers" },
-      { href: "/brands/lakeside-cannabis-co", label: "Lakeside Cannabis Co." },
-      { href: "/brands/nebula", label: "Nebula" },
-      { href: "/brands/grasslandz", label: "Grasslandz" },
-      { href: "/brands/wyld", label: "WYLD" },
-    ],
-  },
+  { label: "Products", items: toNavItems(products, PRODUCT_SLUGS, "/products") },
+  { label: "Brands", items: toNavItems(brands, BRAND_SLUGS, "/brands") },
   { href: "/loyalty", label: "Rewards" },
   { href: "/learn", label: "Learn" },
   { href: "/about-us", label: "About" },
