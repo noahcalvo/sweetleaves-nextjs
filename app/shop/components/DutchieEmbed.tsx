@@ -2,12 +2,22 @@
 
 import { useEffect, useRef } from "react";
 
-export default function DutchieEmbed() {
+interface Props {
+  category?: string;
+}
+
+export default function DutchieEmbed({ category }: Props) {
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!rootRef.current) return;
     if (document.getElementById("dutchie--embed__script")) return;
+
+    if (category) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("dtche[category]", category);
+      window.history.replaceState({}, "", url.toString());
+    }
 
     const s = document.createElement("script");
     s.id = "dutchie--embed__script";
@@ -15,7 +25,7 @@ export default function DutchieEmbed() {
     s.async = true;
     s.defer = true;
     rootRef.current.appendChild(s);
-  }, []);
+  }, [category]);
 
   return <div ref={rootRef} />;
 }

@@ -7,6 +7,7 @@ export interface CatalogEntry {
   slug: string;
   name: string;
   heroImage: string;
+  logoImage?: string;
   headline: string;
   accordionItems: AccordionItem[];
   iframeUrl: string;

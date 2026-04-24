@@ -4,7 +4,7 @@ export const brands: CatalogEntry[] = [
   {
     slug: "sweetleaves",
     name: "Sweetleaves",
-    heroImage: "/brands/hero.jpg",
+    heroImage: "/brands/sweetleaves-hero.jpg",
     headline: "Sweetleaves",
     subheadline: "Shop Sweetleaves at Sweetleaves",
     accordionItems: [
@@ -24,7 +24,7 @@ export const brands: CatalogEntry[] = [
           "<p>Sweetleaves edibles are designed around four effect categories: Elevated Euphoria for mood lifting, Enhanced Sensory Experience for heightened perception, Creative Flow for unlocking inspiration, and Playful Relaxation for a carefree mellowness. Find your fit and make every moment sweeter.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/brands/sweetleaves",
     body: "<p>We are committed to creating a high-end and vibrant space focused on education, community, and inclusivity. Sweetleaves is where your dreams become sweeter.</p>",
     metaDescription:
       "Shop Sweetleaves-brand cannabis edibles at Sweetleaves in Minneapolis. Five bold gummy flavors crafted for elevated euphoria, creative flow, and playful relaxation.",
@@ -61,6 +61,7 @@ export const brands: CatalogEntry[] = [
     slug: "cann",
     name: "CANN",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/cann-logo.png",
     headline: "CANN",
     subheadline: "Shop CANN at Sweetleaves",
     accordionItems: [
@@ -117,6 +118,7 @@ export const brands: CatalogEntry[] = [
     slug: "nowadays",
     name: "Nowadays",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/nowadays-logo.png",
     headline: "Nowadays",
     subheadline: "Shop Nowadays at Sweetleaves",
     accordionItems: [
@@ -145,6 +147,7 @@ export const brands: CatalogEntry[] = [
     slug: "gigli",
     name: "Gigli",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/gigli-logo.webp",
     headline: "Gigli",
     subheadline: "Shop Gigli at Sweetleaves",
     accordionItems: [
@@ -173,6 +176,7 @@ export const brands: CatalogEntry[] = [
     slug: "mary-jane",
     name: "Mary & Jane",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/mary-jane-logo.webp",
     headline: "Mary & Jane",
     subheadline: "Shop Mary & Jane at Sweetleaves",
     accordionItems: [
@@ -471,6 +475,7 @@ export const brands: CatalogEntry[] = [
     slug: "rythm",
     name: "RYTHM",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/rythm-logo.png",
     headline: "RYTHM",
     subheadline: "Shop RYTHM at Sweetleaves",
     accordionItems: [
@@ -498,7 +503,8 @@ export const brands: CatalogEntry[] = [
   {
     slug: "dogwalkers",
     name: "Dogwalkers",
-    heroImage: "/brands/hero.jpg",
+    heroImage: "/brands/dogwalkers-hero.jpg",
+    logoImage: "/brands/dogwalkers-logo.jpg",
     headline: "Dogwalkers",
     subheadline: "Shop Dogwalkers at Sweetleaves",
     accordionItems: [
@@ -527,6 +533,7 @@ export const brands: CatalogEntry[] = [
     slug: "good-green",
     name: "Good Green",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/good-green-logo.jpg",
     headline: "Good Green",
     subheadline: "Shop Good Green at Sweetleaves",
     accordionItems: [
@@ -555,6 +562,7 @@ export const brands: CatalogEntry[] = [
     slug: "grasslandz",
     name: "Grasslandz",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/grasslandz-logo.png",
     headline: "Grasslandz",
     subheadline: "Shop Grasslandz at Sweetleaves",
     accordionItems: [
@@ -583,6 +591,7 @@ export const brands: CatalogEntry[] = [
     slug: "nebula",
     name: "Nebula",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/nebula-logo.png",
     headline: "Nebula",
     subheadline: "Shop Nebula at Sweetleaves",
     accordionItems: [
@@ -611,6 +620,7 @@ export const brands: CatalogEntry[] = [
     slug: "lakeside-cannabis-co",
     name: "Lakeside Cannabis Co.",
     heroImage: "/brands/hero.jpg",
+    logoImage: "/brands/lakeside-cannabis-co-logo.png",
     headline: "Lakeside Cannabis Co.",
     subheadline: "Shop Lakeside Cannabis Co. at Sweetleaves",
     accordionItems: [

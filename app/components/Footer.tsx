@@ -36,14 +36,17 @@ export default function Footer() {
           </h3>
           <nav className="flex flex-col items-center md:items-start">
             <Link
-              href="/shop"
+              href="/products"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
               Products
             </Link>
-            <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
+            <Link
+              href="/brands"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
               Brands
-            </span>
+            </Link>
             <Link
               href="/learn"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"

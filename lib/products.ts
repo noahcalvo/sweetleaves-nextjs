@@ -4,7 +4,7 @@ export const products: CatalogEntry[] = [
   {
     slug: "flower",
     name: "Flower",
-    heroImage: "/products/hero.jpg",
+    heroImage: "/products/flower-hero.jpg",
     headline: "Flower",
     subheadline: "Shop Flower at Sweetleaves",
     accordionItems: [
@@ -24,7 +24,7 @@ export const products: CatalogEntry[] = [
           "<p>Cannabis is now legal for adults (21+) in Minnesota, and Sweetleaves is here to make your experience rewarding. Join The Garden Club to earn points, unlock exclusive perks, and enjoy special offers every time you shop at Sweetleaves. Whether you're trying flower for the first time or revisiting a favorite, our team is ready to help you find the perfect strain for your needs. Choosing Sweetleaves means more than great flower; it's your ticket to a truly personalized cannabis experience.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/flower",
     body: "<p>Join The Garden Club to earn points, unlock exclusive perks, and enjoy special offers every time you shop at Sweetleaves.</p>",
     metaDescription:
       "Shop premium cannabis flower at Sweetleaves in Minneapolis. Curated strains from top cultivators — top-shelf bud to budget-friendly favorites, all expertly packaged.",
@@ -32,7 +32,7 @@ export const products: CatalogEntry[] = [
   {
     slug: "pre-rolls",
     name: "Pre-Rolls",
-    heroImage: "/products/hero.jpg",
+    heroImage: "/products/pre-rolls-hero.jpg",
     headline: "Pre-Rolls",
     subheadline: "Shop Pre-Rolls at Sweetleaves",
     accordionItems: [
@@ -52,7 +52,7 @@ export const products: CatalogEntry[] = [
           "<p>Cannabis is now legal for adults (21+) in Minnesota, and Sweetleaves is here to make that transition approachable and enjoyable. Pre-rolled joints are one of the easiest and most accessible ways to try legal cannabis. Whether you're curious about your first time or returning to something familiar, our team is ready to guide you through it. At Sweetleaves, we offer a smooth entry point into the state's growing cannabis scene.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/pre-rolls",
     body: "<p>At Sweetleaves, we offer a smooth entry point into the state's growing cannabis scene.</p>",
     metaDescription:
       "Shop pre-rolled joints at Sweetleaves in Minneapolis. Expertly packed, consistent, and smooth — from top-shelf flower to budget-friendly options, ready to spark.",
@@ -60,7 +60,7 @@ export const products: CatalogEntry[] = [
   {
     slug: "edibles",
     name: "Edibles",
-    heroImage: "/products/hero.jpg",
+    heroImage: "/products/edibles-hero.jpg",
     headline: "Edibles & Gummies",
     subheadline: "Shop Edibles at Sweetleaves",
     accordionItems: [
@@ -80,7 +80,7 @@ export const products: CatalogEntry[] = [
           "<p>Discover a wide variation in CBD: THC ratios, flavors, and options for delectable edibles at Sweetleaves. Indulge in sweet treats produced exclusively by us as well as innovative creations from Mary & Jane, Gigli, and other Minnesota-based brands. Enjoy our unhurried vibe, artistic setting, and free sparkling water. We provide a nice, sturdy &ldquo;exit bag&rdquo; for your selections and accept credit cards. When everyday life gets in the way of personal pleasure, simply order online for in-store pickup. Sweetleaves is where dreams become sweeter.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/edibles",
     body: "<p>Sweetleaves is where dreams become sweeter.</p>",
     metaDescription:
       "Shop cannabis edibles and THC gummies at Sweetleaves in Minneapolis. Curated brands including Mary & Jane and Gigli, plus in-house creations with no smoke or odor.",
@@ -108,7 +108,7 @@ export const products: CatalogEntry[] = [
           "<p>Consider cannabis beverages as a healthier, hangover-free alternative to alcohol. There are no extra accessories required, no specialized skills needed, and no smoke or odors. Educated in cannabis and well-versed in our exceptional menu, our budtenders are especially wonderful and happy to be your guides. Sit down with us to learn more and personalize your experience. No time? Shop our array of beverages online and opt for in-store pickup at our Minneapolis location. Sweetleaves is where your dreams become sweeter.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/collections/beverages",
     body: "<p>Sweetleaves is where your dreams become sweeter.</p>",
     metaDescription:
       "Shop THC drinks and cannabis beverages at Sweetleaves in Minneapolis. CANN, Nowadays, Gigli, and more — a hangover-free alternative with a gentle 15–30 minute onset.",
@@ -116,7 +116,7 @@ export const products: CatalogEntry[] = [
   {
     slug: "disposable-vapes-and-carts",
     name: "Disposable Vapes & Carts",
-    heroImage: "/products/hero.jpg",
+    heroImage: "/products/vapes-hero.jpg",
     headline: "Disposable Vapes & Carts",
     subheadline: "Shop Vapes & Cartridges at Sweetleaves",
     accordionItems: [
@@ -136,7 +136,7 @@ export const products: CatalogEntry[] = [
           "<p>Cannabis is now legal for adults (21+) in Minnesota, and Sweetleaves is here to help make that transition seamless. Disposable THC vapes and cartridges offer one of the most convenient and discreet ways to explore legal cannabis. Whether you're brand new or getting reacquainted, our knowledgeable budtenders are here to guide you with confidence. At Sweetleaves, we make it easy to step into Minnesota's evolving cannabis culture with trusted vape options you can rely on.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/vaporizers",
     body: "<p>At Sweetleaves, we make it easy to step into Minnesota's evolving cannabis culture with trusted vape options you can rely on.</p>",
     metaDescription:
       "Shop disposable THC vapes and cartridges at Sweetleaves in Minneapolis. Discreet, odorless, and fast-acting — curated for smooth draws and consistent potency.",
@@ -159,7 +159,7 @@ export const products: CatalogEntry[] = [
           "<p>For your own enjoyment, the cannabis enthusiast in your life or to appreciate as a work of art, browse our collection of Minh Le Bongs created by an incredible ceramicist from Hanoi, Vietnam. The tradition of Bát Tràng pottery combines modern function with incomparable beauty. From dab rigs to hand-painted ashtrays, Sweetleaves provides quality gear with added flair. Spend some time browsing with us or enjoy the convenience of online ordering or in-store pickup. Sweetleaves, where dreams become sweeter.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/accessories",
     body: "<p>Sweetleaves, where dreams become sweeter.</p>",
     metaDescription:
       "Shop cannabis accessories at Sweetleaves in Minneapolis. Borosilicate glass pipes, Minh Le ceramic bongs, dab rigs, and more — elevated gear for every session.",
@@ -187,7 +187,7 @@ export const products: CatalogEntry[] = [
           "<p>Open seven days per week in the North Loop, Sweetleaves is your source for helpful information, personalized guidance, and outstanding integrity of products. Our budtenders are educated, delighted to share insight, and available to sit down for a private, unhurried consultation. There is no need for an MMJ card to shop for holistic healing products from us. We accept credit cards and offer the convenience of ordering your CBD edibles and drinks online for in-store pickup at our location in Minneapolis.</p>",
       },
     ],
-    iframeUrl: "",
+    iframeUrl: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/cbd",
     body: "<p>Open seven days per week in the North Loop, Sweetleaves is your source for helpful information, personalized guidance, and outstanding integrity of products.</p>",
     metaDescription:
       "Shop CBD drinks, gummies, and sleep aids at Sweetleaves in Minneapolis. Non-psychoactive, pet-friendly options for relief from pain, anxiety, and more. No MMJ card needed.",

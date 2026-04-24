@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import SignInButton from "./SignInButton";
 import { NAV_LINKS } from "./links";
 
 export default function DesktopNav() {
@@ -37,7 +36,6 @@ export default function DesktopNav() {
         </div>
 
         <div className="flex items-center gap-6">
-          <SignInButton />
           <Link
             href="/shop"
             className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity"
