@@ -22,4 +22,5 @@ export const NAV_LINKS: NavItem[] = [
   { href: "/loyalty", label: "Rewards" },
   { href: "/learn", label: "Learn" },
   { href: "/about-us", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
