@@ -25,7 +25,7 @@ export default function DealsCarousel({ slides }: Props) {
 
   return (
     <div
-      className="relative h-[273px] md:h-[320px] w-full max-w-[1280px] mx-auto rounded-[40px] overflow-hidden cursor-pointer"
+      className="relative aspect-[2/1] md:aspect-[4/1] w-full max-w-[1280px] mx-auto rounded-[40px] overflow-hidden cursor-pointer"
       onClick={slides.length > 1 ? next : undefined}
     >
       <Image
