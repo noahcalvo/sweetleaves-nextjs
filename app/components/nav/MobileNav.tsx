@@ -7,19 +7,44 @@ import { NAV_LINKS } from "./links";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [menuMaxHeight, setMenuMaxHeight] = useState("0px");
 
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", isOpen);
     return () => document.body.classList.remove("overflow-hidden");
   }, [isOpen]);
 
+  // Recalculate max-height after DOM settles — covers both open/close and sub-dropdown expand
+  useEffect(() => {
+    if (!isOpen) {
+      setMenuMaxHeight("0px");
+      return;
+    }
+    const frame = requestAnimationFrame(() => {
+      if (menuRef.current) {
+        setMenuMaxHeight(`${menuRef.current.scrollHeight}px`);
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [isOpen, openDropdown]);
+
+  function close() {
+    setIsOpen(false);
+    setOpenDropdown(null);
+  }
+
+  function toggleDropdown(label: string) {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  }
+
   return (
     <div className="md:hidden sticky top-0 z-40">
       <div className="relative bg-dark-green px-5 pt-4 pb-4">
         {/* Top row: logo + hamburger */}
         <div className="flex items-center justify-between">
-          <Link href="/" onClick={() => setIsOpen(false)}>
+          <Link href="/" onClick={close}>
             <Image
               src="/logos-and-icons/logo-hotizontal/Sweetleaves_Logo_White_Horizontal_B.svg"
               alt="Sweetleaves"
@@ -55,7 +80,7 @@ export default function MobileNav() {
         {/* Shop Now button — always visible */}
         <Link
           href="/shop"
-          onClick={() => setIsOpen(false)}
+          onClick={close}
           className="mt-4 flex items-center justify-center bg-light-gold text-dark-green font-poppins-semibold uppercase text-base py-3.5 rounded-full hover:opacity-90 transition-opacity w-full"
         >
           Shop Now
@@ -65,23 +90,53 @@ export default function MobileNav() {
         <div
           ref={menuRef}
           className="absolute left-0 right-0 top-full bg-dark-green overflow-hidden transition-[max-height] duration-300 ease-in-out"
-          style={{
-            maxHeight: isOpen
-              ? `${menuRef.current?.scrollHeight ?? 300}px`
-              : "0px",
-          }}
+          style={{ maxHeight: menuMaxHeight }}
         >
-          <div className="px-5 pb-5 pt-2 flex flex-col items-center gap-3">
-            {NAV_LINKS.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setIsOpen(false)}
-                className="font-poppins-bold text-[15px] text-white uppercase hover:opacity-75 transition-opacity py-1"
-              >
-                {label}
-              </Link>
-            ))}
+          <div className="px-5 pb-5 pt-2 flex flex-col items-center gap-1">
+            {NAV_LINKS.map((item) =>
+              item.items ? (
+                <div key={item.label} className="w-full flex flex-col items-center">
+                  <button
+                    onClick={() => toggleDropdown(item.label)}
+                    className="font-poppins-bold text-[15px] text-white uppercase hover:opacity-75 transition-opacity py-2 flex items-center gap-1.5"
+                  >
+                    {item.label}
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      className={`transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`}
+                    >
+                      <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  {openDropdown === item.label && (
+                    <div className="flex flex-col items-center gap-0.5 pb-2 pt-1">
+                      {item.items.map(({ href, label }) => (
+                        <Link
+                          key={href}
+                          href={href}
+                          onClick={close}
+                          className="font-poppins-bold text-[13px] text-parchment uppercase py-1.5 hover:opacity-75 transition-opacity"
+                        >
+                          {label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={close}
+                  className="font-poppins-bold text-[15px] text-white uppercase hover:opacity-75 transition-opacity py-2"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>

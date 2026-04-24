@@ -23,16 +23,39 @@ export default function DesktopNav() {
           />
         </Link>
 
-        <div className="flex items-center gap-8">
-          {NAV_LINKS.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="font-poppins-bold text-[15px] text-parchment uppercase hover:opacity-75 transition-opacity"
-            >
-              {label}
-            </Link>
-          ))}
+        <div className="flex self-stretch items-stretch gap-8">
+          {NAV_LINKS.map((item) =>
+            item.items ? (
+              <div key={item.label} className="group relative flex items-center">
+                <span className="font-poppins-bold text-[15px] text-parchment uppercase cursor-default select-none group-hover:opacity-75 transition-opacity">
+                  {item.label}
+                </span>
+                {/* invisible bridge keeps hover active between trigger and panel */}
+                <div className="invisible group-hover:visible absolute top-full left-1/2 -translate-x-1/2 w-full h-4" />
+                <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 absolute top-[calc(100%+1rem)] left-1/2 -translate-x-1/2 z-50">
+                  <div className="bg-dark-green border border-dark-sage rounded-2xl py-2 px-1 min-w-[190px] flex flex-col shadow-xl">
+                    {item.items.map(({ href, label }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        className="font-poppins-bold text-[13px] text-parchment uppercase px-4 py-2.5 rounded-xl hover:bg-dark-sage transition-colors whitespace-nowrap"
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-poppins-bold text-[15px] text-parchment uppercase hover:opacity-75 transition-opacity flex items-center"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
 
         <div className="flex items-center gap-6">
