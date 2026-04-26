@@ -1,13 +1,13 @@
-"use client";
-
 interface Props {
-  batch: string;
+  pdfUrl: string;
 }
 
-export default function ViewReportButton({ batch }: Props) {
+export default function ViewReportButton({ pdfUrl }: Props) {
   return (
-    <button
-      onClick={() => alert(`Opening COA PDF for ${batch}…`)}
+    <a
+      href={pdfUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-flex gap-2 items-center bg-dark-green text-light-gold px-[18px] py-[10px] rounded-full text-[13px] font-semibold transition-all duration-200 hover:bg-light-gold hover:text-dark-green max-sm:px-[14px] max-sm:py-2 max-sm:text-[12px]"
     >
       <svg
@@ -25,6 +25,6 @@ export default function ViewReportButton({ batch }: Props) {
         <path d="M5 21h14" />
       </svg>
       View Report
-    </button>
+    </a>
   );
 }
