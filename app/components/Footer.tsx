@@ -35,27 +35,54 @@ export default function Footer() {
             Shop
           </h3>
           <nav className="flex flex-col items-center md:items-start">
-            <Link
-              href="/shop"
+            <a
+              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/flower"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
-              Products
-            </Link>
-            <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
-              Brands
-            </span>
-            <Link
-              href="/learn"
+              Flower
+            </a>
+            <a
+              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/pre-rolls"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
-              Learn
-            </Link>
-            <Link
-              href="/shop"
+              Pre-Rolls
+            </a>
+            <a
+              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/vaporizers"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
-              Order Online
-            </Link>
+              Vaporizers
+            </a>
+            <a
+              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/edibles"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              Edibles
+            </a>
+            <a
+              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/concentrates"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              Concentrates
+            </a>
+            <a
+              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/staff-picks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              Staff Picks
+            </a>
           </nav>
         </div>
 
@@ -66,10 +93,16 @@ export default function Footer() {
           </h3>
           <nav className="flex flex-col items-center md:items-start">
             <Link
-              href="/loyalty"
+              href="/rewards"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
-              Garden Club
+              Rewards
+            </Link>
+            <Link
+              href="/learn"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              Learn
             </Link>
             <Link
               href="/faq"
@@ -83,6 +116,12 @@ export default function Footer() {
             >
               Events
             </Link>
+            <Link
+              href="/contact"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              Contact
+            </Link>
             <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
               Careers
             </span>
@@ -95,11 +134,16 @@ export default function Footer() {
             Visit
           </h3>
           <div className="flex flex-col items-center md:items-start">
-            <p className="font-poppins-regular text-lg text-white text-center md:text-left">
+            <a
+              href="https://maps.google.com/?q=905+N+Washington+Ave,+Minneapolis,+MN+55401"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-poppins-regular text-lg text-white hover:opacity-75 transition-opacity text-center md:text-left"
+            >
               905 N Washington Ave
               <br />
               Minneapolis, MN 55401
-            </p>
+            </a>
             <a
               href="tel:612-688-9333"
               className="font-poppins-regular text-lg text-white hover:opacity-75 transition-opacity text-center md:text-left"
