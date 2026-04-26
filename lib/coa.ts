@@ -53,11 +53,9 @@ const GET_COA_BATCHES_QUERY = `
   query GetCoaBatches {
     coaBatches(first: 100, where: { orderby: { field: DATE, order: DESC } }) { # increase limit if batch count ever approaches 100
       nodes {
-        coaBatchFields {
-          flavor
-          batchNumber
-          pdfUrl
-        }
+        flavor
+        batchNumber
+        pdfUrl
       }
     }
   }
@@ -76,9 +74,9 @@ export async function getCoaBatches(): Promise<CoaBatch[]> {
 
   const nodes: any[] = data?.coaBatches?.nodes ?? [];
   return nodes.map((node: any) => ({
-    flavor:      node.coaBatchFields?.flavor      ?? "",
-    batchNumber: node.coaBatchFields?.batchNumber ?? "",
-    pdfUrl:      node.coaBatchFields?.pdfUrl      || null,
+    flavor:      node.flavor      ?? "",
+    batchNumber: node.batchNumber ?? "",
+    pdfUrl:      node.pdfUrl      || null,
   }));
 }
 
