@@ -31,45 +31,36 @@ export default function Footer() {
       <div className="flex flex-col md:grid md:grid-cols-4 gap-5 md:gap-[70px] items-center md:items-start">
         {/* Shop */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Shop
-          </h3>
+          </p>
           <nav className="flex flex-col items-center md:items-start">
-            <Link
-              href="/shop"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Products
-            </Link>
-            <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
-              Brands
-            </span>
-            <Link
-              href="/learn"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Learn
-            </Link>
-            <Link
-              href="/shop"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Order Online
-            </Link>
+            <Link href="/products/flower" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Flower</Link>
+            <Link href="/products/pre-rolls" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Pre-Rolls</Link>
+            <Link href="/products/vaporizers" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Vaporizers</Link>
+            <Link href="/products/edibles" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Edibles</Link>
+            <Link href="/products/cannabis-beverages" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">THC Drinks</Link>
+            <Link href="/products/cbd" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">CBD</Link>
           </nav>
         </div>
 
         {/* Info */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Info
-          </h3>
+          </p>
           <nav className="flex flex-col items-center md:items-start">
             <Link
               href="/loyalty"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
-              Garden Club
+              Rewards
+            </Link>
+            <Link
+              href="/learn"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              Learn
             </Link>
             <Link
               href="/faq"
@@ -83,23 +74,37 @@ export default function Footer() {
             >
               Events
             </Link>
-            <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
-              Careers
-            </span>
+            <Link
+              href="/contact"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/COA"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              COAs
+            </Link>
           </nav>
         </div>
 
         {/* Visit */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Visit
-          </h3>
+          </p>
           <div className="flex flex-col items-center md:items-start">
-            <p className="font-poppins-regular text-lg text-white text-center md:text-left">
+            <a
+              href="https://maps.google.com/?q=905+N+Washington+Ave,+Minneapolis,+MN+55401"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-poppins-regular text-lg text-white hover:opacity-75 transition-opacity text-center md:text-left"
+            >
               905 N Washington Ave
               <br />
               Minneapolis, MN 55401
-            </p>
+            </a>
             <a
               href="tel:612-688-9333"
               className="font-poppins-regular text-lg text-white hover:opacity-75 transition-opacity text-center md:text-left"
@@ -111,9 +116,9 @@ export default function Footer() {
 
         {/* Hours */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Hours
-          </h3>
+          </p>
           <div className="flex flex-col items-center md:items-start">
             <span className="font-poppins-regular text-lg text-white">
               Monday: 10am-9pm
