@@ -51,7 +51,7 @@ export default function Footer() {
           </p>
           <nav className="flex flex-col items-center md:items-start">
             <Link
-              href="/rewards"
+              href="/loyalty"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
               Rewards
@@ -80,9 +80,12 @@ export default function Footer() {
             >
               Contact
             </Link>
-            <span className="font-poppins-regular text-lg text-white py-0.5 text-center md:text-left">
-              Careers
-            </span>
+            <Link
+              href="/COA"
+              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
+            >
+              COAs
+            </Link>
           </nav>
         </div>
 
