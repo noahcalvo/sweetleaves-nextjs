@@ -31,9 +31,9 @@ export default function Footer() {
       <div className="flex flex-col md:grid md:grid-cols-4 gap-5 md:gap-[70px] items-center md:items-start">
         {/* Shop */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Shop
-          </h3>
+          </p>
           <nav className="flex flex-col items-center md:items-start">
             <a
               href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/flower"
@@ -88,9 +88,9 @@ export default function Footer() {
 
         {/* Info */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Info
-          </h3>
+          </p>
           <nav className="flex flex-col items-center md:items-start">
             <Link
               href="/rewards"
@@ -130,9 +130,9 @@ export default function Footer() {
 
         {/* Visit */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Visit
-          </h3>
+          </p>
           <div className="flex flex-col items-center md:items-start">
             <a
               href="https://maps.google.com/?q=905+N+Washington+Ave,+Minneapolis,+MN+55401"
@@ -155,9 +155,9 @@ export default function Footer() {
 
         {/* Hours */}
         <div className="flex flex-col gap-1.5 items-center md:items-start">
-          <h3 className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
+          <p className="font-poppins-bold text-lg text-ivory uppercase text-center md:text-left">
             Hours
-          </h3>
+          </p>
           <div className="flex flex-col items-center md:items-start">
             <span className="font-poppins-regular text-lg text-white">
               Monday: 10am-9pm

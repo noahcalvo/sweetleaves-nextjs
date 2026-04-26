@@ -13,6 +13,7 @@ interface FaqItemProps {
 function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
   return (
     <div className="bg-white rounded-[50px] overflow-clip self-start">
+      <h3 className="m-0">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-1 md:gap-7 pl-4 md:pl-8 pr-2.5 py-2.5"
@@ -28,6 +29,7 @@ function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
           &gt;
         </span>
       </button>
+      </h3>
       <div
         className={`grid transition-[grid-template-rows] duration-500 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
       >
