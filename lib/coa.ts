@@ -13,7 +13,7 @@ export interface CoaBatch {
 export interface FlavorMeta {
   displayName: string;
   imageSlug: string;
-  halo: string;
+  halo: string; // CSS color value — applied via inline style because these are data-driven and can't be static Tailwind tokens
 }
 
 export interface CoaGroup {
@@ -51,7 +51,7 @@ const COA_REVALIDATE_SECONDS = Number(
 
 const GET_COA_BATCHES_QUERY = `
   query GetCoaBatches {
-    coaBatches(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+    coaBatches(first: 100, where: { orderby: { field: DATE, order: DESC } }) { # increase limit if batch count ever approaches 100
       nodes {
         coaBatchFields {
           flavor
@@ -96,7 +96,7 @@ export function groupBatchesByFlavor(batches: CoaBatch[]): CoaGroup[] {
     if (!meta) continue;
 
     if (!groups.has(key)) {
-      groups.set(key, { flavor: batch.flavor, meta, batches: [] });
+      groups.set(key, { flavor: key, meta, batches: [] });
     }
     groups.get(key)!.batches.push(batch);
   }
