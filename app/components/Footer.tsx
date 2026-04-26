@@ -35,54 +35,12 @@ export default function Footer() {
             Shop
           </p>
           <nav className="flex flex-col items-center md:items-start">
-            <a
-              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/flower"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Flower
-            </a>
-            <a
-              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/pre-rolls"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Pre-Rolls
-            </a>
-            <a
-              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/vaporizers"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Vaporizers
-            </a>
-            <a
-              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/edibles"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Edibles
-            </a>
-            <a
-              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/concentrates"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Concentrates
-            </a>
-            <a
-              href="https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/staff-picks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
-            >
-              Staff Picks
-            </a>
+            <Link href="/products/flower" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Flower</Link>
+            <Link href="/products/pre-rolls" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Pre-Rolls</Link>
+            <Link href="/products/vaporizers" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Vaporizers</Link>
+            <Link href="/products/edibles" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Edibles</Link>
+            <Link href="/products/concentrates" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Concentrates</Link>
+            <Link href="/products/staff-picks" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Staff Picks</Link>
           </nav>
         </div>
 
