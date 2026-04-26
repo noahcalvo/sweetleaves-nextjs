@@ -17,7 +17,7 @@ Three ACF free fields (no Pro required):
 
 | Field key | Type | Notes |
 |-----------|------|-------|
-| `flavor` | Text | Must match a key in the frontend `FLAVOR_MAP` (e.g. "Pink Lemonade"). Casing matters. |
+| `flavor` | Text | Must match a key in the frontend `FLAVOR_MAP` (e.g. "Pink Lemonade"). Matching is case-insensitive. |
 | `batch_number` | Text | e.g. "B-26041-PLE" |
 | `pdf_url` | URL | Link to the COA PDF. Leave blank until PDF is available. |
 
@@ -41,7 +41,7 @@ Three exports:
 ```
 Adding a new flavor requires: (1) a new entry here, (2) a corresponding image in `/public/products/gummies/`. This is the only file that needs a code change when a new flavor is introduced.
 
-Flavors not present in `FLAVOR_MAP` are silently skipped — a WP typo won't break the page.
+Keys in `FLAVOR_MAP` are lowercase. Lookup normalizes the WP flavor value to lowercase before matching, so "Pink Lemonade", "pink lemonade", and "PINK LEMONADE" all resolve correctly. Flavors with no matching key are silently skipped — a WP typo won't break the page.
 
 **`getCoaBatches()`** — fetches all `coa_batch` nodes from WPGraphQL, ordered by date descending. Requests `flavor`, `batchNumber`, `pdfUrl`. Revalidates on `WP_COA_REVALIDATE_SECONDS` env var (defaults to 300 seconds).
 
