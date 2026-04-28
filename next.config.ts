@@ -61,6 +61,10 @@ const nextConfig: NextConfig = {
       { source: "/pre-rolls/", destination: "/products/pre-rolls/", permanent: true },
       { source: "/faq/", destination: "/faqs/", permanent: true },
       { source: "/shop/", destination: "/shop-now/", permanent: true },
+      { source: "/learn/", destination: "/blog/", permanent: true },
+      { source: "/learn/:path*/", destination: "/blog/:path*/", permanent: true },
+      { source: "/careers/", destination: "/contact/", permanent: true },
+      { source: "/quick-links/", destination: "/", permanent: true },
     ];
   },
 };

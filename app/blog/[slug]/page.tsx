@@ -3,23 +3,38 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, getAdjacentPost } from "@/lib/blog";
-import LearnGardenClub from "@/app/learn/components/LearnGardenClub";
+import LearnGardenClub from "../components/LearnGardenClub";
 
-const SLUG = "minnesota-cannabis-laws";
+interface Props {
+  params: Promise<{ slug: string }>;
+}
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Minnesota Cannabis Laws in 2026 | Sweetleaves",
-  },
-  description:
-    "Explore Minnesota cannabis laws in 2026, including possession, home cultivation, purchase limits, and Minneapolis regulations for responsible adult use.",
-  alternates: { canonical: "/minnesota-cannabis-laws/" },
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPost(slug);
+  if (!post) return {};
 
-export default async function MinnesotaCannabisLawsPage() {
+  const description = post.excerpt.replace(/<[^>]*>/g, "").slice(0, 160);
+
+  return {
+    title: post.title,
+    description,
+    alternates: { canonical: `/blog/${slug}/` },
+    openGraph: {
+      title: post.title,
+      description,
+      ...(post.featuredImage && {
+        images: [{ url: post.featuredImage.url }],
+      }),
+    },
+  };
+}
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
   const [post, nextPost] = await Promise.all([
-    getPost(SLUG),
-    getAdjacentPost(SLUG, "next"),
+    getPost(slug),
+    getAdjacentPost(slug, "next"),
   ]);
 
   if (!post) notFound();
@@ -52,14 +67,14 @@ export default async function MinnesotaCannabisLawsPage() {
 
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-[10px]">
           <Link
-            href="/blog/"
+            href="/blog"
             className="bg-light-gold text-dark-green font-poppins-semibold text-[16px] uppercase px-[25px] py-[14px] rounded-full hover:opacity-90 transition-opacity text-center w-full md:w-auto min-w-[250px]"
           >
             &lt; Back to Blog
           </Link>
           {nextPost && (
             <Link
-              href={`/learn/${nextPost.slug}`}
+              href={`/blog/${nextPost.slug}/`}
               className="bg-light-gold text-dark-green font-poppins-semibold text-[16px] uppercase px-[25px] py-[14px] rounded-full hover:opacity-90 transition-opacity text-center w-full md:w-auto min-w-[250px]"
             >
               Next Post &gt;

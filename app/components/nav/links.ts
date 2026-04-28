@@ -20,7 +20,7 @@ export const NAV_LINKS: NavItem[] = [
   { label: "Products", items: toNavItems(products, PRODUCT_SLUGS, "/products") },
   { label: "Brands", items: toNavItems(brands, BRAND_SLUGS, "/brands") },
   { href: "/loyalty", label: "Rewards" },
-  { href: "/learn", label: "Learn" },
+  { href: "/blog", label: "Blog" },
   { href: "/about-us", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

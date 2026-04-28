@@ -8,15 +8,12 @@ const staticRoutes = [
   "/",
   "/about-us/",
   "/contact/",
-  "/careers/",
   "/events/",
   "/faqs/",
   "/loyalty/",
   "/shop-now/",
   "/certificate-of-analysis/",
   "/blog/",
-  "/cannabis-101-understanding-thc-cbd-and-more/",
-  "/minnesota-cannabis-laws/",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

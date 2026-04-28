@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getPosts } from "@/lib/blog";
-import LearnGardenClub from "../learn/components/LearnGardenClub";
+import LearnGardenClub from "../blog/components/LearnGardenClub";
 import EventCard from "./components/EventCard";
 import EventSearch from "./components/EventSearch";
 
