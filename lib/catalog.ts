@@ -11,4 +11,5 @@ export interface CatalogEntry {
   subheadline: string;
   body: string;
   metaDescription: string;
+  metaTitle?: string;
 }

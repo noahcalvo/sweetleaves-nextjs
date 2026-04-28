@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Visit Sweetleaves in North Loop Minneapolis. Address, hours, parking, and directions.",
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

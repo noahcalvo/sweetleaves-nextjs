@@ -79,7 +79,7 @@ export default function MobileNav() {
 
         {/* Shop Now button — always visible */}
         <Link
-          href="/shop"
+          href="/shop-now/"
           onClick={close}
           className="mt-4 flex items-center justify-center bg-light-gold text-dark-green font-poppins-semibold uppercase text-base py-3.5 rounded-full hover:opacity-90 transition-opacity w-full"
         >

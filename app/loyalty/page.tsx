@@ -6,9 +6,10 @@ import FaqSection from "./components/FaqSection";
 import { getFaqsBySection } from "@/lib/faq";
 
 export const metadata: Metadata = {
-  title: "Garden Club Rewards",
+  title: "Loyalty",
   description:
     "Join the Sweetleaves Garden Club. Earn points on every purchase and enjoy exclusive perks, birthday rewards, and more.",
+  alternates: { canonical: "/loyalty/" },
 };
 
 export default async function RewardsPage() {

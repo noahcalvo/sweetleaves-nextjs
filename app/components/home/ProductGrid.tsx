@@ -36,7 +36,7 @@ function ProductCategory({ name, image, href }: ProductData) {
 }
 
 const products: ProductData[] = [
-  { name: "Shop All", image: "/home/products/lighter.png", href: "/shop" },
+  { name: "Shop All", image: "/home/products/lighter.png", href: "/shop-now/" },
   { name: "Flower", image: "/home/products/flower.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/flower" },
   { name: "Pre-Rolls", image: "/home/products/prerolls.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/pre-rolls" },
   { name: "Vaporizers", image: "/home/products/vaporizers.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/vaporizers" },
@@ -65,7 +65,7 @@ export default function ProductGrid() {
           ))}
         </div>
         <Link
-          href="/shop"
+          href="/shop-now/"
           className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity w-full max-w-[358px] text-center"
         >
           Shop All

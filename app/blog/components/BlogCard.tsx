@@ -17,7 +17,7 @@ export default function BlogCard({ post }: Props) {
 
   return (
     <Link
-      href={`/learn/${post.slug}`}
+      href={`/blog/${post.slug}`}
       className="bg-white rounded-[30px] p-[19px] flex flex-col gap-[22px] hover:shadow-lg transition-shadow"
     >
       <div className="relative w-full aspect-[16/9] rounded-[10px] overflow-hidden">

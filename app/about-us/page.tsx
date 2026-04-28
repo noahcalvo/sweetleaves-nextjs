@@ -7,9 +7,10 @@ import FaqSection from "../components/FaqSection";
 import { getCommonFaqs } from "@/lib/faq";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us",
   description:
     "Learn about Sweetleaves, a recreational cannabis dispensary in North Loop Minneapolis. Cannabis for real people.",
+  alternates: { canonical: "/about-us/" },
 };
 
 export default async function AboutPage() {

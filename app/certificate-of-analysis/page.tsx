@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Certificates of Analysis",
   description:
     "Every Sweetleaves batch is independently tested by an ISO-accredited third-party lab for potency, residual solvents, pesticides, heavy metals, and microbials.",
-  alternates: { canonical: "/coa" },
+  alternates: { canonical: "/certificate-of-analysis/" },
 };
 
 export default async function CoaPage() {

@@ -8,7 +8,7 @@ export default async function BlogSection() {
     title: post.title,
     excerpt: post.excerpt,
     image: post.featuredImage?.url ?? null,
-    href: `/learn/${post.slug}`,
+    href: `/blog/${post.slug}`,
   }));
 
   return (

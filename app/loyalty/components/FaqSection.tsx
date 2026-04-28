@@ -56,7 +56,7 @@ export default function FaqSection({ faqs }: Props) {
           Common Questions
         </h2>
         <Link
-          href="/faq"
+          href="/faqs/"
           className="hidden md:flex bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity"
         >
           View all FAQ
@@ -74,7 +74,7 @@ export default function FaqSection({ faqs }: Props) {
         ))}
       </div>
       <Link
-        href="/faq"
+        href="/faqs/"
         className="md:hidden bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity w-full text-center"
       >
         View all FAQ

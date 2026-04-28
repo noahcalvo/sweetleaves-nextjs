@@ -8,10 +8,10 @@ import CategoryFilter from "./components/CategoryFilter";
 import Pagination from "./components/Pagination";
 
 export const metadata: Metadata = {
-  title: "Our Blog",
+  title: "Blog",
   description:
     "Cannabis education, product spotlights, and community stories from Sweetleaves in Minneapolis.",
-  alternates: { canonical: "/learn" },
+  alternates: { canonical: "/blog/" },
 };
 
 interface Props {
@@ -65,7 +65,7 @@ export default async function LearnPage({ searchParams }: Props) {
       <Pagination
         currentPage={page}
         pageCount={pageCount}
-        basePath="/learn"
+        basePath="/blog"
         searchParams={paginationParams}
       />
 

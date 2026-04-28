@@ -5,10 +5,10 @@ import CareersCard from "./components/CareersCard";
 import StillHaveQuestionsCard from "./components/StillHaveQuestionsCard";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "FAQs",
   description:
     "Frequently asked questions about Sweetleaves Cannabis in Minneapolis — shopping, products, laws, and more.",
-  alternates: { canonical: "/faq" },
+  alternates: { canonical: "/faqs/" },
 };
 
 export default async function FaqPage() {

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost } from "@/lib/blog";
-import LearnGardenClub from "../../learn/components/LearnGardenClub";
+import LearnGardenClub from "../../blog/components/LearnGardenClub";
 
 interface Props {
   params: Promise<{ slug: string }>;

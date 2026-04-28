@@ -57,13 +57,13 @@ export default function Footer() {
               Rewards
             </Link>
             <Link
-              href="/learn"
+              href="/blog"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
               Learn
             </Link>
             <Link
-              href="/faq"
+              href="/faqs/"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
               FAQ
