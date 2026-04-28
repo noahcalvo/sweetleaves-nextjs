@@ -81,7 +81,7 @@ export default function Footer() {
               Contact
             </Link>
             <Link
-              href="/COA"
+              href="/certificate-of-analysis"
               className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left"
             >
               COAs
