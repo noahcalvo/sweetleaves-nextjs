@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getCoaBatches, groupBatchesByFlavor } from "@/lib/coa";
 import ViewReportButton from "./components/ViewReportButton";
+import SubBatchPills from "./components/SubBatchPills";
 
 export const metadata: Metadata = {
   title: "Certificates of Analysis",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default async function CoaPage() {
   const batches = await getCoaBatches();
   const groups = groupBatchesByFlavor(batches);
+  const batchLookup = new Map(batches.map((b) => [b.batchNumber, b]));
 
   return (
     <div className="font-poppins">
@@ -62,19 +64,27 @@ export default async function CoaPage() {
               {group.batches.map((batch, i) => (
                 <div
                   key={batch.batchNumber}
-                  className={`flex justify-between items-center px-6 py-[18px] max-sm:px-[18px] max-sm:py-[14px]${
+                  className={`px-6 py-[18px] max-sm:px-[18px] max-sm:py-[14px]${
                     i < group.batches.length - 1
                       ? " border-b border-dark-green/[0.08]"
                       : ""
                   }`}
                 >
-                  <div className="text-[14px] text-dark-sage max-sm:text-[13px]">
-                    Batch{" "}
-                    <span className="font-mono text-[15px] text-dark-green font-semibold ml-1.5">
-                      {batch.batchNumber}
-                    </span>
+                  <div className="flex justify-between items-center">
+                    <div className="text-[14px] text-dark-sage max-sm:text-[13px]">
+                      Batch{" "}
+                      <span className="font-mono text-[15px] text-dark-green font-semibold ml-1.5">
+                        {batch.batchNumber}
+                      </span>
+                    </div>
+                    {batch.pdfUrl && <ViewReportButton pdfUrl={batch.pdfUrl} />}
                   </div>
-                  {batch.pdfUrl && <ViewReportButton pdfUrl={batch.pdfUrl} />}
+                  {batch.subBatches.length > 0 && (
+                    <SubBatchPills
+                      subBatchNumbers={batch.subBatches}
+                      batchLookup={batchLookup}
+                    />
+                  )}
                 </div>
               ))}
             </div>

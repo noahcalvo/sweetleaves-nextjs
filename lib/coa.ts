@@ -8,6 +8,7 @@ export interface CoaBatch {
   flavor: string;
   batchNumber: string;
   pdfUrl: string | null;
+  subBatches: string[]; // non-empty for mix products — batch numbers of component batches
 }
 
 export interface FlavorMeta {
@@ -56,6 +57,7 @@ const GET_COA_BATCHES_QUERY = `
         flavor
         batchNumber
         pdfUrl
+        subBatches
       }
     }
   }
@@ -77,6 +79,9 @@ export async function getCoaBatches(): Promise<CoaBatch[]> {
     flavor:      node.flavor      ?? "",
     batchNumber: node.batchNumber ?? "",
     pdfUrl:      node.pdfUrl      || null,
+    subBatches:  node.subBatches
+      ? node.subBatches.split(",").map((s: string) => s.trim()).filter(Boolean)
+      : [],
   }));
 }
 
