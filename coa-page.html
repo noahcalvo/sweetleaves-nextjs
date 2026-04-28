@@ -1,0 +1,286 @@
+<!--
+  Sweetleaves — Certificates of Analysis page
+  Standalone extraction from index.html for handoff to dev.
+
+  Notes for dev:
+  - Product thumbnails reference /assets/ images that ship with the site.
+    There is currently no peach asset; falling back to gummies.png.
+  - The "View Report" button currently shows an alert(); wire it up to the
+    real COA PDF URL per batch when those are available.
+  - Search box is hidden by default in the live site (style="display:none")
+    but the JS is fully wired — set display:block to enable.
+  - Color tokens (--forest, --yellow, --forest-2) and Poppins font are
+    inherited from the site's global styles; included here for portability.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates of Analysis — Sweetleaves</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+  /* ===== Global tokens (from site root) ===== */
+  :root {
+    --bg: rgb(218,245,255);
+    --forest: rgb(15,45,37);
+    --forest-2: rgb(36,67,59);
+    --yellow: rgb(244,231,129);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--forest); font-family: 'Poppins', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  .hidden { display: none; }
+
+  /* ===== COA page ===== */
+  .coa-hero .kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--forest-2); font-weight: 600; }
+  .coa-hero { text-align: center; padding: 70px 20px 40px; max-width: 880px; margin: 0 auto; }
+  .coa-hero h1 { font-size: clamp(44px, 6vw, 66px); font-weight: 700; color: var(--forest); line-height: 0.95; margin: 10px 0 20px; }
+  .coa-sub { font-size: 16px; line-height: 1.55; color: var(--forest-2); max-width: 680px; margin: 0 auto 30px; }
+  .coa-search { position: relative; max-width: 540px; margin: 0 auto; }
+  .coa-search svg { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--forest-2); }
+  .coa-search input { width: 100%; background: #fff; border: 1.5px solid rgba(15,45,37,.12); border-radius: 999px; padding: 16px 22px 16px 48px; font-family: inherit; font-size: 15px; color: var(--forest); outline: none; }
+  .coa-search input:focus { border-color: var(--forest); }
+  .coa-list { max-width: 1100px; margin: 0 auto; padding: 20px 20px 40px; display: flex; flex-direction: column; gap: 18px; }
+  .coa-product { background: #fff; border-radius: 24px; overflow: hidden; border: 1px solid rgba(15,45,37,.08); }
+  .coa-product-head { display: grid; grid-template-columns: 72px 1fr auto; gap: 18px; align-items: center; padding: 20px 24px; border-bottom: 1px solid rgba(15,45,37,.1); }
+  .coa-product-head .thumb { width: 72px; height: 72px; border-radius: 16px; display: grid; place-items: center; overflow: hidden; }
+  .coa-product-head .thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .coa-product-head .title { font-size: 24px; font-weight: 700; color: var(--forest); line-height: 1.1; }
+  .coa-product-head .sku { font-family: 'Menlo', 'Courier New', monospace; font-size: 12px; letter-spacing: .04em; color: var(--forest-2); margin-top: 4px; text-transform: uppercase; }
+  .coa-product-head .meta-pills { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .coa-product-head .meta-pills span { background: rgba(15,45,37,.06); color: var(--forest); font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 999px; }
+  .coa-product-head .batch-count { font-size: 13px; color: var(--forest-2); text-align: right; }
+  .coa-product-head .batch-count strong { display: block; font-size: 22px; color: var(--forest); font-weight: 700; line-height: 1; }
+  .coa-rows { display: flex; flex-direction: column; }
+  .coa-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid rgba(15,45,37,.08); }
+  .coa-row:last-child { border-bottom: 0; }
+  .coa-row-batch { font-size: 14px; color: var(--forest-2); letter-spacing: .02em; }
+  .coa-row-batch span { font-family: 'Menlo', 'Courier New', monospace; font-size: 15px; color: var(--forest); font-weight: 600; margin-left: 6px; }
+  .coa-row-btn { display: inline-flex; gap: 8px; align-items: center; background: var(--forest); color: var(--yellow); padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; transition: all .2s ease; }
+  .coa-row-btn:hover { background: var(--yellow); color: var(--forest); }
+  @media (max-width: 500px) {
+    .coa-row { padding: 14px 18px; }
+    .coa-row-batch { font-size: 13px; }
+    .coa-row-btn { padding: 8px 14px; font-size: 12px; }
+  }
+  .coa-batches { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr auto; gap: 0; font-size: 14px; }
+  .coa-batches .row { display: contents; }
+  .coa-batches .cell { padding: 14px 18px; border-bottom: 1px solid rgba(15,45,37,.06); display: flex; align-items: center; color: var(--forest); }
+  .coa-batches .cell.label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--forest-2); font-weight: 600; padding-top: 14px; padding-bottom: 10px; background: rgba(15,45,37,.025); }
+  .coa-batches .cell.mono { font-family: 'Menlo', 'Courier New', monospace; font-size: 13px; }
+  .coa-batches .cell.pass { color: #1a7a3c; font-weight: 600; display: flex; gap: 6px; align-items: center; }
+  .coa-batches .cell.download { justify-content: flex-end; }
+  .coa-batches .cell.download a { display: inline-flex; gap: 6px; align-items: center; background: var(--forest); color: var(--yellow); padding: 8px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .coa-batches .cell.download a:hover { background: var(--yellow); color: var(--forest); }
+  .coa-batches .row:last-child .cell { border-bottom: 0; }
+  @media (max-width: 760px) {
+    .coa-product-head { grid-template-columns: 56px 1fr; }
+    .coa-product-head .batch-count { grid-column: 1 / -1; text-align: left; display:flex; gap:8px; align-items:baseline; }
+    .coa-product-head .batch-count strong { display: inline; font-size: 14px; }
+    .coa-product-head .thumb { width: 56px; height: 56px; }
+    .coa-batches { grid-template-columns: 1fr 1fr; font-size: 13px; }
+    .coa-batches .cell { padding: 10px 14px; }
+    .coa-batches .cell.label { display: none; }
+    .coa-batches .cell.download { grid-column: 1 / -1; justify-content: flex-start; }
+  }
+  .coa-footer-note { max-width: 880px; margin: 30px auto 80px; padding: 0 20px; }
+  .coa-footer-note > div { background: var(--forest); color: #fff; border-radius: 28px; padding: 36px 40px; }
+  .coa-footer-note h3 { margin: 0 0 10px; font-size: 22px; color: var(--yellow); font-weight: 700; }
+  .coa-footer-note p { margin: 0; font-size: 14px; line-height: 1.55; opacity: .88; }
+  .coa-footer-note a { color: var(--yellow); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- VIEW: COAs -->
+  <main id="viewCOA" class="container">
+    <section class="coa-hero">
+      <div class="kicker">Lab Results</div>
+      <h1>Certificates of Analysis</h1>
+      <p class="coa-sub">Every Sweetleaves batch is independently tested by an ISO-accredited third-party lab for potency, residual solvents, pesticides, heavy metals, and microbials. Find your batch below by product SKU.</p>
+      <div class="coa-search" style="display:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="coaQuery" type="text" placeholder="Search by SKU, batch number, or product name">
+      </div>
+    </section>
+    <section id="coaList" class="coa-list"></section>
+    <section class="coa-footer-note">
+      <div>
+        <h3>Why we test every batch</h3>
+        <p>Because you deserve to know what you're putting in your body. Our COAs confirm cannabinoid content within &plusmn;10% of label and screen for 60+ contaminants. Can't find the batch on your bag? Email <a href="mailto:info@sweetleavesnorthloop.com">info@sweetleavesnorthloop.com</a> with the lot number and we'll send the report directly.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  /* =========================================================
+     PRODUCT CATALOG (subset used by COA page)
+     The live site stores full product data; only the fields
+     referenced by renderCOAs() are needed here.
+     ========================================================= */
+  const PRODUCTS = [
+    {
+      slug: 'pink-lemonade',
+      name: 'CHILL',
+      flavor: 'Pink Lemonade',
+      image: 'assets/gummy_pinklemonade.png',
+    },
+    {
+      slug: 'blackberry-sleep',
+      name: 'SLEEP',
+      flavor: 'Blackberry',
+      image: 'assets/gummy_sleep.png',
+    },
+    {
+      slug: 'passion-fruit',
+      name: 'EVERYDAY',
+      flavor: 'Passion Fruit',
+      image: 'assets/gummy_passionfruit.png',
+    },
+    {
+      slug: 'pineapple',
+      name: 'EVERYDAY',
+      flavor: 'Pineapple',
+      image: 'assets/gummy_pineapple.png',
+    },
+    {
+      slug: 'tropical-mix',
+      name: 'EVERYDAY',
+      flavor: 'Tropical Mix',
+      image: 'assets/gummy_tropicalmix.png',
+    },
+    {
+      slug: 'peach',
+      name: 'EVERYDAY',
+      flavor: 'Peach',
+      image: 'assets/gummies.png', /* no dedicated peach asset yet */
+    },
+  ];
+
+  /* =========================================================
+     COA batch data — organized by product SKU
+     ========================================================= */
+  const COA_BATCHES = {
+    'pink-lemonade': {
+      sku: 'SL-CHL-PL-35G',
+      lab: 'Northland Laboratories',
+      batches: [
+        { batch: 'B-26041-PLE', mfg: '04/02/2026', thc: '5.0 mg', cbd: '10.0 mg', status: 'Pass' },
+        { batch: 'B-26012-PLE', mfg: '01/18/2026', thc: '5.1 mg', cbd: '10.2 mg', status: 'Pass' },
+        { batch: 'B-25311-PLE', mfg: '11/08/2025', thc: '4.9 mg', cbd: '9.8 mg',  status: 'Pass' },
+        { batch: 'B-25247-PLE', mfg: '09/12/2025', thc: '5.0 mg', cbd: '10.1 mg', status: 'Pass' },
+      ]
+    },
+    'blackberry-sleep': {
+      sku: 'SL-SLP-BB-50T',
+      lab: 'Northland Laboratories',
+      batches: [
+        { batch: 'B-26039-SBB', mfg: '03/28/2026', thc: '5.0 mg', cbd: '10.0 mg', cbn: '5.0 mg', status: 'Pass' },
+        { batch: 'B-26007-SBB', mfg: '01/10/2026', thc: '5.2 mg', cbd: '10.1 mg', cbn: '5.1 mg', status: 'Pass' },
+        { batch: 'B-25298-SBB', mfg: '10/22/2025', thc: '4.9 mg', cbd: '9.9 mg',  cbn: '5.0 mg', status: 'Pass' },
+      ]
+    },
+    'passion-fruit': {
+      sku: 'SL-EVR-PF-50T',
+      lab: 'Keystone Analytics',
+      batches: [
+        { batch: 'B-26044-EPF', mfg: '04/05/2026', thc: '5.0 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-26015-EPF', mfg: '01/21/2026', thc: '4.9 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-25314-EPF', mfg: '11/10/2025', thc: '5.1 mg', cbd: '—', status: 'Pass' },
+      ]
+    },
+    'pineapple': {
+      sku: 'SL-EVR-PA-50T',
+      lab: 'Keystone Analytics',
+      batches: [
+        { batch: 'B-26040-EPA', mfg: '04/03/2026', thc: '5.0 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-26010-EPA', mfg: '01/14/2026', thc: '5.0 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-25305-EPA', mfg: '11/02/2025', thc: '4.8 mg', cbd: '—', status: 'Pass' },
+      ]
+    },
+    'tropical-mix': {
+      sku: 'SL-EVR-TM-50T',
+      lab: 'Northland Laboratories',
+      batches: [
+        { batch: 'B-26043-ETM', mfg: '04/04/2026', thc: '5.0 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-26014-ETM', mfg: '01/20/2026', thc: '5.1 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-25308-ETM', mfg: '11/05/2025', thc: '5.0 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-25251-ETM', mfg: '09/16/2025', thc: '4.9 mg', cbd: '—', status: 'Pass' },
+      ]
+    },
+    'peach': {
+      sku: 'SL-EVR-PC-50T',
+      lab: 'Keystone Analytics',
+      batches: [
+        { batch: 'B-26045-EPC', mfg: '04/08/2026', thc: '5.0 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-26018-EPC', mfg: '01/25/2026', thc: '5.0 mg', cbd: '—', status: 'Pass' },
+        { batch: 'B-25319-EPC', mfg: '11/14/2025', thc: '4.9 mg', cbd: '—', status: 'Pass' },
+      ]
+    },
+  };
+
+  /* =========================================================
+     RENDER + SEARCH
+     ========================================================= */
+  function renderCOAs() {
+    const q = (document.getElementById('coaQuery')?.value || '').toLowerCase().trim();
+    const host = document.getElementById('coaList');
+    if (!host) return;
+    const halos = {
+      'pink-lemonade': '#f9d7e0',
+      'blackberry-sleep': '#cedff7',
+      'passion-fruit': '#d9c7ea',
+      'pineapple': '#f2e7b8',
+      'tropical-mix': '#e8d8f0',
+      'peach': '#fad4bf',
+    };
+    const sections = PRODUCTS.map(p => {
+      const data = COA_BATCHES[p.slug];
+      if (!data) return null;
+      const matchProduct = !q || (p.name + ' ' + p.flavor + ' ' + data.sku + ' ' + p.slug).toLowerCase().includes(q);
+      const matchedBatches = data.batches.filter(b =>
+        !q || matchProduct || (b.batch + ' ' + b.mfg).toLowerCase().includes(q)
+      );
+      if (!matchedBatches.length) return null;
+
+      const rows = matchedBatches.map(b => `
+        <div class="coa-row">
+          <div class="coa-row-batch">Batch <span>${b.batch}</span></div>
+          <a class="coa-row-btn" href="#" onclick="event.preventDefault(); alert('Opening COA PDF for ' + '${b.batch}' + '…');">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+            View Report
+          </a>
+        </div>`).join('');
+
+      return `
+        <div class="coa-product">
+          <div class="coa-product-head">
+            <div class="thumb" style="background:${halos[p.slug] || '#eee'}">
+              <img src="${p.image}" alt="${p.name} ${p.flavor}">
+            </div>
+            <div>
+              <div class="title">${p.name === 'EVERYDAY' ? p.flavor : (p.name.charAt(0) + p.name.slice(1).toLowerCase()) + ' · ' + p.flavor}</div>
+            </div>
+          </div>
+          <div class="coa-rows">
+            ${rows}
+          </div>
+        </div>`;
+    }).filter(Boolean).join('');
+
+    host.innerHTML = sections || '<div style="text-align:center;padding:60px 20px;color:var(--forest-2);">No COAs match that search. Try a different SKU or batch number.</div>';
+  }
+
+  function wireCOAs() {
+    const input = document.getElementById('coaQuery');
+    if (input) input.addEventListener('input', renderCOAs);
+  }
+
+  /* Init */
+  renderCOAs();
+  wireCOAs();
+  </script>
+</body>
+</html>
