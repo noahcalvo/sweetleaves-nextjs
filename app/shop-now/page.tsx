@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import DutchieEmbed from "./components/DutchieEmbed";
+
+export const metadata: Metadata = {
+  title: "Shop Now",
+  alternates: { canonical: "/shop-now/" },
+};
 
 export default function ShopPage() {
   return (

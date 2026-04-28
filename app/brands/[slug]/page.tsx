@@ -16,9 +16,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const brand = brands.find((b) => b.slug === slug);
   if (!brand) return {};
   return {
-    title: brand.name,
+    title: { absolute: brand.metaTitle ?? brand.name },
     description: brand.metaDescription,
-    alternates: { canonical: `/brands/${brand.slug}` },
+    alternates: { canonical: `/brands/${brand.slug}/` },
   };
 }
 

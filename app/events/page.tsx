@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Events",
   description:
     "Upcoming events, in-store specials, and community happenings at Sweetleaves in Minneapolis.",
-  alternates: { canonical: "/events" },
+  alternates: { canonical: "/events/" },
 };
 
 interface Props {

@@ -10,7 +10,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Sweetleaves at Sweetleaves",
     body: "<p>We are committed to creating a high-end and vibrant space focused on education, community, and inclusivity. Sweetleaves is where your dreams become sweeter.</p>",
     metaDescription:
-      "Shop Sweetleaves-brand cannabis edibles at Sweetleaves in Minneapolis. Five bold gummy flavors crafted for elevated euphoria, creative flow, and playful relaxation.",
+      "Shop Sweetleaves cannabis products for Minneapolis, MN. Contact us today for more info about our cannabis products!",
+    metaTitle: "Sweetleaves Products | Sweetleaves",
   },
   {
     slug: "blncd",
@@ -50,7 +51,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Nowadays at Sweetleaves",
     body: "<p>Spend some time with us or let us accommodate your hectic schedule with online ordering, in-store pickup, or delivery. Sweetleaves is where your dreams become sweeter.</p>",
     metaDescription:
-      "Shop Nowadays cannabis drink blends at Sweetleaves in Minneapolis. Natural fruit flavors, fast onset, hangover-free — the perfect alternative to alcohol.",
+      "Shop Nowadays cannabis products for a premium experience. Explore our selection of high-quality products for ultimate relaxation.",
+    metaTitle: "Nowadays Cannabis Products | Sweetleaves",
   },
   {
     slug: "gigli",
@@ -60,7 +62,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Gigli at Sweetleaves",
     body: "<p>Sweetleaves … Where your dreams become sweeter. Discover Gigli's full lineup of all-natural, vegan, and gluten-free cannabis products in our Minneapolis dispensary.</p>",
     metaDescription:
-      "Shop Gigli cannabis beverages, gummies, and chocolates at Sweetleaves in Minneapolis. All natural, vegan, gluten-free, and under 100 calories.",
+      "Shop Gigli cannabis products for a premium experience. Explore our selection of high-quality products for ultimate relaxation.",
+    metaTitle: "Gigli Cannabis Products | Sweetleaves",
   },
   {
     slug: "mary-jane",
@@ -70,7 +73,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Mary & Jane at Sweetleaves",
     body: "<p>The amazing budtenders from Sweetleaves are here to sit down with you and assist in your cannabis plan and preferences. We're also available to optimize convenience with online ordering, in-store pickup, and delivery.</p>",
     metaDescription:
-      "Shop Mary & Jane cannabis edibles at Sweetleaves in Minneapolis. A local MN brand focused on precise dosing — vegan, sugar-free Sunny Melts and fast-acting edibles.",
+      "Shop Mary & Jane cannabis products for a premium experience. Explore our selection of high-quality products for ultimate relaxation.",
+    metaTitle: "Mary & Jane",
   },
   {
     slug: "birchs-on-the-lake",
@@ -80,7 +84,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Birch's on the Lake at Sweetleaves",
     body: "<p>Discover Birch's on the Lake THC seltzers at Sweetleaves in Minneapolis. Naturally crafted, community-focused, and crafted by a brewmaster with nearly 20 years of experience.</p>",
     metaDescription:
-      "Shop Birch's on the Lake THC seltzers at Sweetleaves in Minneapolis. Real fruit ingredients, 15mg CBD, expertly brewed cannabis beverages for every occasion.",
+      "Birch's on the Lake brings healing THC edibles and drinks to Sweetleaves in Minneapolis, MN. Enjoy thoughtful, handcrafted products from Long Lake, Minnesota.",
+    metaTitle: "Birch's on the Lake | Edibles & THC Drinks in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "clrty",
@@ -120,7 +125,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Oliphant Brewing at Sweetleaves",
     body: "<p>Stop in or order online to discover Oliphant Brewing's THC-infused beverages at Sweetleaves in Minneapolis. Craft, creativity, and bold flavors — for the weirdos of the world.</p>",
     metaDescription:
-      "Shop Oliphant Brewing THC beverages at Sweetleaves in Minneapolis. Brewer-owned, craft-forward THC drinks in 10mg and 25mg potencies — delivered to your door.",
+      "Try Oliphant Brewing THC drinks from Sweetleaves in Minneapolis, MN. Bold, creative beverages crafted by Wisconsin brewers, perfect for adventurous cannabis drinkers.",
+    metaTitle: "Oliphant Brewing | THC Drinks in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "ongrok",
@@ -160,7 +166,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Wild State Cider / Birdie at Sweetleaves",
     body: "<p>Find Wild State Cider's Birdie line at Sweetleaves in Minneapolis. Minnesota-grown, non-alcoholic, cannabis-infused ciders crafted with real fruit and Delta-9 hemp extract.</p>",
     metaDescription:
-      "Shop Wild State Cider Birdie THC ciders at Sweetleaves in Minneapolis. Minnesota-made, non-alcoholic, cannabis-infused ciders with real fruit — no concentrates or artificial flavors.",
+      "Savor Wild State Cider's Birdie THC drinks from Sweetleaves in Minneapolis, MN. Made in Minnesota, these drinks offer a refreshing, flavorful cannabis experience.",
+    metaTitle: "Birdie by Wild State Cider | THC Drinks in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "wyld",
@@ -171,7 +178,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop WYLD at Sweetleaves",
     body: "<p>Shop WYLD cannabis edibles at Sweetleaves in Minneapolis. Nature-inspired flavors, real fruit, and precise dosing — crafted by one of the world's leading cannabis edible brands.</p>",
     metaDescription:
-      "Shop WYLD cannabis edibles at Sweetleaves in Minneapolis. Real fruit flavors, precise dosing, and a people-first brand committed to quality and the planet.",
+      "Shop WYLD edibles at Sweetleaves in Minneapolis, MN. Crafted with innovation and a commitment to sustainability, these edibles bring the science of cannabinoids to life.",
+    metaTitle: "WYLD | Edibles in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "rythm",
@@ -182,7 +190,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop RYTHM at Sweetleaves",
     body: "<p>Explore RYTHM flower strains at Sweetleaves in Minneapolis. Consistent quality, terpene-rich cultivars, and a brand built on artistry and self-expression.</p>",
     metaDescription:
-      "Shop RYTHM cannabis flower at Sweetleaves in Minneapolis. Artistically cultivated, terpene-rich strains from energizing sativas to deeply relaxing indicas.",
+      "Discover RYTHM flower at Sweetleaves in Minneapolis. Premium strains crafted to inspire, relax, and connect for every cannabis enthusiast.",
+    metaTitle: "RYTHM | Flower in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "dogwalkers",
@@ -193,7 +202,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Dogwalkers at Sweetleaves",
     body: "<p>Pick up Dogwalkers pre-rolls at Sweetleaves in Minneapolis. Premium cannabis, smooth sessions, and a mission that supports local animal rescue organizations.</p>",
     metaDescription:
-      "Shop Dogwalkers pre-rolls at Sweetleaves in Minneapolis. Premium, purpose-driven cannabis — Mini Dog, Big Dog, and Show Dog sizes, supporting animal rescue with every purchase.",
+      "Find Dogwalkers at Sweetleaves in Minneapolis. Quality pre-rolls crafted from premium flower that helps support animal rescue.",
+    metaTitle: "Dogwalkers | Pre-Rolls in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "good-green",
@@ -204,7 +214,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Good Green at Sweetleaves",
     body: "<p>Visit our North Loop dispensary in Minneapolis to explore Good Green flower and enjoy a premium cannabis experience that also contributes to positive change in the communities we serve.</p>",
     metaDescription:
-      "Shop Good Green cannabis flower at Sweetleaves in Minneapolis. Top-shelf, terpene-rich flower supporting education, employment, and expungement in communities impacted by the War on Drugs.",
+      "Explore Good Green flower at Sweetleaves in Minneapolis. Premium cannabis with reliable quality and a mission to support communities in need.",
+    metaTitle: "Good Green | Flower in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "grasslandz",
@@ -215,7 +226,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Grasslandz at Sweetleaves",
     body: "<p>Find Grasslandz vape cartridges at Sweetleaves in Minneapolis. Sun-grown, regeneratively cultivated cannabis — clean flavor, smooth vapor, consistent effects.</p>",
     metaDescription:
-      "Shop Grasslandz vape cartridges at Sweetleaves in Minneapolis. Regeneratively sun-grown cannabis, clean flavor, and smooth vapor crafted with intention.",
+      "Explore Grasslandz cartridges at Sweetleaves in Minneapolis. Sun-grown, regenerative cannabis crafted with care, quality, and intention.",
+    metaTitle: "Grasslandz | Vapes in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "nebula",
@@ -226,7 +238,8 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Nebula at Sweetleaves",
     body: "<p>Discover Nebula cannabis cartridges and edibles at Sweetleaves in Minneapolis. Modern, reliable, and consistently smooth — cannabis made simple.</p>",
     metaDescription:
-      "Shop Nebula cannabis cartridges and edibles at Sweetleaves in Minneapolis. A modern cannabis brand delivering smooth, reliable effects and bold flavor profiles.",
+      "Explore Nebula cartridges and edibles at Sweetleaves in Minneapolis. Enjoy flavorful, and consistent cannabis experiences with Nebula.",
+    metaTitle: "Nebula | Vapes & Edibles in Minneapolis MN | Sweetleaves",
   },
   {
     slug: "lakeside-cannabis-co",
@@ -237,6 +250,7 @@ export const brands: CatalogEntry[] = [
     subheadline: "Shop Lakeside Cannabis Co. at Sweetleaves",
     body: "<p>Stop by our flagship North Loop dispensary in Minneapolis to explore Lakeside Cannabis Co. vapes and enjoy cannabis designed for relaxed, memorable moments.</p>",
     metaDescription:
-      "Shop Lakeside Cannabis Co. vapes at Sweetleaves in Minneapolis. Cartridges and disposables with smooth flavor and balanced effects — made for easygoing moments.",
+      "Explore Lakeside Cannabis Co. cartridges and disposables at Sweetleaves in Minneapolis. Easygoing, high-quality vapes crafted for relaxed moments.",
+    metaTitle: "Lakeside Cannabis Co. | Vapes in Minneapolis MN | Sweetleaves",
   },
 ];

@@ -12,9 +12,12 @@ import FaqSection from "./components/FaqSection";
 import { getCommonFaqs } from "@/lib/faq";
 
 export const metadata: Metadata = {
-  title: "Sweetleaves | Cannabis Dispensary in Minneapolis",
+  title: {
+    absolute: "Recreational Cannabis Dispensary in Minneapolis, MN | Sweetleaves",
+  },
   description:
-    "Recreational cannabis dispensary in Minneapolis, Minnesota. Shop flower, edibles, vaporizers, concentrates, and more. Visit us in the North Loop.",
+    "Redefine your recreational cannabis at Sweetleaves, your trusted dispensary in Minneapolis, Minnesota. Shop quality products for all your cannabis needs.",
+  alternates: { canonical: "/" },
 };
 
 export default async function Home() {
