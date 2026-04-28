@@ -5,13 +5,19 @@ interface Props {
   batchLookup: Map<string, CoaBatch>;
 }
 
+const FLAVOR_ORDER = Object.keys(FLAVOR_MAP);
+
 export default function SubBatchPills({ subBatchNumbers, batchLookup }: Props) {
-  const pills = subBatchNumbers.flatMap((num) => {
-    const batch = batchLookup.get(num);
-    if (!batch?.pdfUrl) return [];
-    const halo = FLAVOR_MAP[batch.flavor.toLowerCase()]?.halo ?? "#eee";
-    return [{ num, pdfUrl: batch.pdfUrl, halo }];
-  });
+  const pills = subBatchNumbers
+    .flatMap((num) => {
+      const batch = batchLookup.get(num);
+      if (!batch?.pdfUrl) return [];
+      const flavorKey = batch.flavor.toLowerCase();
+      const halo = FLAVOR_MAP[flavorKey]?.halo ?? "#eee";
+      const order = FLAVOR_ORDER.indexOf(flavorKey);
+      return [{ num, pdfUrl: batch.pdfUrl, halo, order }];
+    })
+    .sort((a, b) => a.order - b.order);
 
   if (!pills.length) return null;
 
