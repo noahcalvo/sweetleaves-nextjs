@@ -54,7 +54,7 @@ export const products: CatalogEntry[] = [
     metaTitle: "THC Drinks in Minneapolis MN | Sweetleaves",
   },
   {
-    slug: "vaporizers",
+    slug: "disposable-vapes-and-carts",
     name: "Disposable Vapes & Carts",
     navLabel: "Vapes",
     headline: "Disposable Vapes & Carts",
