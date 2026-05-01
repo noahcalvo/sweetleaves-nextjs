@@ -18,7 +18,7 @@ const staticRoutes: Array<{ path: string } & RouteConfig> = [
   { path: "/loyalty/", changeFrequency: "monthly", priority: 0.5 },
   { path: "/shop-now/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/certificate-of-analysis/", changeFrequency: "monthly", priority: 0.5 },
-  { path: "/blog/", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/blog/", changeFrequency: "weekly", priority: 0.8 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
