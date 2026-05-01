@@ -12,6 +12,8 @@ export async function GET() {
       (post) => `  <url>
     <loc>${BASE}/blog/${post.slug}/</loc>
     <lastmod>${new Date(post.date).toISOString().split("T")[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>`
     )
     .join("\n");
