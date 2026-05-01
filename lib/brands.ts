@@ -14,36 +14,6 @@ export const brands: CatalogEntry[] = [
     metaTitle: "Sweetleaves Products | Sweetleaves",
   },
   {
-    slug: "blncd",
-    name: "BLNCD",
-    headline: "BLNCD",
-    category: "blncd",
-    subheadline: "Farm-To-Table Cannabis Products",
-    body: "<p>BLNCD Naturals is a women-owned company specializing in beauty and wellness products that harness the therapeutic benefits of plant-based ingredients, including cannabis. Established by founders passionate about healthier living, the brand focuses on holistic solutions for everyday health concerns, offering a luxurious range of high-performing products for mainstream consumers.</p><p>The BLNCD team comprises an esthetician and a chemist, ensuring that their skincare and wellness offerings are both effective and clean. Committed to ethical sourcing and rigorous quality control, the company has gained recognition in prestigious publications such as Fashionista and Byrdie.</p><p>As a vertically integrated business, BLNCD controls its hemp supply chain from farm to table, utilizing certified organic hemp and wildcrafted ingredients in its products. Each item is cruelty-free and made in small batches in Northeast Minneapolis, adhering to Good Manufacturing Practices and USDA Organic certification, with third-party lab testing available for consumer transparency.</p>",
-    metaDescription:
-      "Shop BLNCD Naturals at Sweetleaves in Minneapolis. Women-owned, USDA Organic, small-batch cannabis wellness and skincare made in Northeast Minneapolis.",
-  },
-  {
-    slug: "cann",
-    name: "CANN",
-    headline: "CANN",
-    category: "cann",
-    subheadline: "Find CANN When You Visit Sweetleaves",
-    body: "<p>If you're interested in drinking your cannabis, quality ingredients, and looking for original flavors, Sweetleaves is the perfect destination. Step inside an upscale environment, connect with unique products, and enjoy an uplifting experience. We source our cannabis beverages from those producers who think so far outside the box, that there are no limits. Discover the goodness in a wonderful variety from CANN.</p><p>Bubbly, invigorating, and just right for every occasion, CANN beverages are the new go-to party drink, craft cocktail, and healthy substitute for alcohol. You get to decide your level of buzz. Delivering an onset of effects in around 10 to 15 minutes and naturally sweetened, a lineup of award-winning flavors needs to be tasted to be believed. We highly recommend the Starter Pack to sample one each of Blood Orange Cardamom, Lemon Lavender, and Grapefruit Rosemary.</p><p>Bundles, Canns, Hi Boys, Lo Boys, Roadies, and Seasonal temptations are designed to suit your preferences, purposes, and priorities anytime and anywhere. Ask our budtenders for a tour of beverages and helpful information. We are always happy to sit down with you, set you at ease, and contribute to rewarding choices. Even if you're on the go, we rise to the challenge, offering the quick convenience of online ordering, in-store pickup, and delivery! Sweetleaves is where dreams become sweeter.</p>",
-    metaDescription:
-      "Shop CANN cannabis beverages at Sweetleaves in Minneapolis. Bubbly, low-dose social drinks — a healthier alternative to alcohol, delivered in the Minneapolis metro.",
-  },
-  {
-    slug: "raw",
-    name: "RAW",
-    headline: "RAW",
-    category: "raw",
-    subheadline: "Not Just Papers – RAW Cones",
-    body: "<p>This company is committed to producing its best rolling paper yet, with a focus on achieving perfection in every aspect. They are updating their packaging to reinforce the unique identity of RAW, reminding consumers that there is only one RAW. The overarching goal is to uplift the world through the transformative experience of smoking.</p><p>RAW Cones provide exceptional convenience, allowing users to fill and light them quickly without the need for traditional rolling techniques. This simplicity makes them an ideal choice for smokers seeking efficiency. To further enhance this experience, the brand has developed RAWESOME devices that enable users to fill the cones in just seconds, catering to those who prefer a faster method.</p><p>The brand has reintroduced the classic rolling tray, offering an extensive selection to meet the diverse preferences of smokers. With a variety of trays available, RAW aims to accommodate the unique rolling styles of every user. RAW represents a lifestyle for those who truly appreciate their smoking experience and aspire to elevate it, all while promoting their unbleached, plant-based papers as the epitome of quality.</p>",
-    metaDescription:
-      "Shop RAW rolling papers and cones at Sweetleaves in Minneapolis. Unbleached, plant-based papers, cones, and accessories for every style of smoker.",
-  },
-  {
     slug: "nowadays",
     name: "Nowadays",
     headline: "Nowadays",
@@ -88,26 +58,6 @@ export const brands: CatalogEntry[] = [
     metaTitle: "Birch's on the Lake | Edibles & THC Drinks in Minneapolis MN | Sweetleaves",
   },
   {
-    slug: "clrty",
-    name: "Clr!ty",
-    headline: "Clr!ty",
-    category: "clrty",
-    subheadline: "Get Clr!ty at Sweetleaves",
-    body: "<p>At Sweetleaves, we take pride in offering our customers the finest cannabis products available in the market. Among our featured brands, Clr!ty stands out for its unwavering commitment to purity and potency. This brand has quickly become a favorite among our discerning clientele who seek the highest quality marijuana products.</p><p>When you're looking to quench your thirst, Clr!ty's beverage lines are sure to please no matter your tastes. With refreshing seltzers, shots and mixers, or even your favorite cold brew coffee flavors (Pumpkin Spice Latte, anyone?), there is something for everyone from this visionary brand. You can even get daring with products like the Pineapple-Jalapeño 5mg Flavor BLAST or the Blue Ginger SodaPot. We invite you to stop in, browse our exciting line of Clr!ty products, and sit down to sip and enjoy.</p><p>This isn't just your everyday beverage brand. Clr!ty uses fast-acting, hemp-derived THC in their sippables to ensure you're getting the best effects when you want them. Additionally, Clr!ty's products cater to a number of different dietary preferences. For example, their CoffeePot line offers a sugar-free option with their Vanilla Cold Brew and a dairy-free option in their Mocha Latte. You can also select your potency with 5mg and 10mg choices for their seltzers, mixers, and cold brews.</p>",
-    metaDescription:
-      "Shop Clr!ty THC beverages at Sweetleaves in Minneapolis. Fast-acting hemp-derived THC seltzers, shots, mixers, and cold brews in 5mg and 10mg potencies.",
-  },
-  {
-    slug: "find-wunder",
-    name: "Find Wunder",
-    headline: "Find Wunder",
-    category: "find-wunder",
-    subheadline: "Find Wunder at Sweetleaves",
-    body: "<p>FIND WUNDER was established in 2018 by a small group seeking a better alternative to alcohol. This curiosity evolved into a mission aimed at promoting healthier choices while still enjoying joyful experiences. The goal is to help individuals unwind, be present for what truly matters, and show up as their best selves afterward.</p><p>The team at FIND WUNDER comprises passionate beverage enthusiasts who envision a future where everyone has genuine choices about what, when, and how they drink. They aspire to foster a more present and curious global community. Over the past five years, they have dedicated themselves to creating exceptional beverages that blend bold, nostalgic flavors with thoughtfully selected ingredients, redefining what WUNDER means.</p><p>Having sold millions of cans, FIND WUNDER has earned recognition as the third-largest THC beverage brand in California. The company is still in the early stages of its journey, with a small team working tirelessly to expand its reach and share WUNDER with more consumers. Their commitment to quality and innovation continues to drive their efforts in the beverage industry.</p>",
-    metaDescription:
-      "Shop Find Wunder THC beverages at Sweetleaves in Minneapolis. One of the top THC beverage brands in the country — a genuine, better alternative to alcohol.",
-  },
-  {
     slug: "minh-le-studio",
     name: "Minh Lê Studio",
     headline: "Minh Lê Studio",
@@ -129,16 +79,6 @@ export const brands: CatalogEntry[] = [
     metaTitle: "Oliphant Brewing | THC Drinks in Minneapolis MN | Sweetleaves",
   },
   {
-    slug: "ongrok",
-    name: "ONGROK",
-    headline: "ONGROK",
-    category: "ongrok",
-    subheadline: "The History of ONGROK",
-    body: "<p>ONGROK designs its products in North America, utilizing high-quality materials such as natural hardwoods, aircraft-grade aluminum, and eco-friendly components, all presented in a modern style. The company offers a comprehensive range of sleek and discreet accessories tailored to fit contemporary lifestyles, with a performance guarantee on every item. Customers are encouraged to reach out with any concerns, and ONGROK is committed to resolving issues promptly.</p><p>The founder, once a young professional, sought to address the stigma surrounding cannabis while looking for affordable quality accessories. Recognizing a lack of products that suited his lifestyle, he decided to create a complete line that would enhance the overall experience. By engaging with friends and family for their input, he developed a curated collection of discreet and practical items from his condo in Toronto, ensuring they met the needs of discerning consumers.</p><p>ONGROK's products are crafted from premium materials, emphasizing a modern design that resonates with customer preferences. The brand ensures that these items are discreet and readily accessible through local retailers. The name &ldquo;ONGROK&rdquo; is derived from the term &ldquo;grok&rdquo; in Robert Heinlein's Stranger in a Strange Land, which signifies a deep, intuitive understanding. This philosophy underlies the company's mission to enhance the customer experience, and ONGROK guarantees that users will enjoy the products as much as the founder does.</p>",
-    metaDescription:
-      "Shop ONGROK cannabis accessories at Sweetleaves in Minneapolis. North American-designed, premium hardwood and aluminum accessories with a performance guarantee.",
-  },
-  {
     slug: "session-goods",
     name: "Session Goods",
     headline: "Session Goods",
@@ -147,16 +87,6 @@ export const brands: CatalogEntry[] = [
     body: "<p>Visit Sweetleaves in Minneapolis to shop Session Goods cannabis accessories. Modern, minimal design meets functional engineering — built for a better session.</p>",
     metaDescription:
       "Shop Session Goods cannabis accessories at Sweetleaves in Minneapolis. Beautifully engineered, easy-to-clean pieces designed to elevate every session.",
-  },
-  {
-    slug: "studio-tbd",
-    name: "Studio TBD",
-    headline: "Studio TBD",
-    category: "studio-tbd",
-    subheadline: "Studio TBD at Sweetleaves",
-    body: "<p>Studio TBD is a creative collective based in NYC, dedicated to enhancing cannabis experiences for both individuals and the planet. All products undergo third-party lab testing – you can even access the Certificates of Analysis (COAs) by scanning the QR code on the packaging! In this way, Studio TBD ensures that their products are the highest quality, and you can rest assured in their transparency.</p><p>Studio TBD offers a diverse range of cannabis products designed to elevate the user experience. Their lineup includes sleek vape pens for on-the-go enjoyment, pre-rolls affectionately called &ldquo;mfers&rdquo; that deliver convenience and quality, as well as delicious edibles that cater to various tastes. Additionally, their thoughtfully crafted beverages provide a refreshing way to enjoy cannabis, ensuring there's something for everyone to savor and appreciate.</p><p>At Sweetleaves, we are proud to offer a wide selection of Studio TBD products to our customers in the Minneapolis Metropolitan Area. Our knowledgeable staff is always ready to help you find the perfect Studio TBD product to suit your needs and preferences. We invite you to swing by our store to browse our products, sit down and relax for a chat, and enjoy your selected products. If you're more comfortable at home, we're happy to deliver throughout the metro area.</p>",
-    metaDescription:
-      "Shop Studio TBD cannabis vapes, pre-rolls, and edibles at Sweetleaves in Minneapolis. NYC-based creative collective bringing thoughtful design to cannabis.",
   },
   {
     slug: "wild-state-cider-birdie",
