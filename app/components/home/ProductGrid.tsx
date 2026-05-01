@@ -37,12 +37,12 @@ function ProductCategory({ name, image, href }: ProductData) {
 
 const products: ProductData[] = [
   { name: "Shop All", image: "/home/products/lighter.png", href: "/shop-now/" },
-  { name: "Flower", image: "/home/products/flower.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/flower" },
-  { name: "Pre-Rolls", image: "/home/products/prerolls.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/pre-rolls" },
-  { name: "Vaporizers", image: "/home/products/vaporizers.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/vaporizers" },
-  { name: "Edibles", image: "/home/products/gummies.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/edibles" },
-  { name: "Concentrates", image: "/home/products/concentrate.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/concentrates" },
-  { name: "Staff Picks", image: "/home/products/staff-picks.png", href: "https://dutchie.com/embedded-menu/sweet-leaves-a-cannabis-company/products/staff-picks" },
+  { name: "Flower", image: "/home/products/flower.png", href: "/products/flower" },
+  { name: "Pre-Rolls", image: "/home/products/prerolls.png", href: "/products/pre-rolls" },
+  { name: "Vaporizers", image: "/home/products/vaporizers.png", href: "/products/disposable-vapes-and-carts" },
+  { name: "Edibles", image: "/home/products/gummies.png", href: "/products/edibles" },
+  { name: "Concentrates", image: "/home/products/concentrate.png", href: "/products/concentrates" },
+  { name: "Staff Picks", image: "/home/products/staff-picks.png", href: "/shop-now/" },
 ];
 
 const mobileProducts = products.filter((p) => p.name !== "Shop All");
