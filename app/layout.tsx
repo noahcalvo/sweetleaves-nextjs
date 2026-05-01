@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Poppins } from "next/font/google";
 import { cookies } from "next/headers";
 import AgeGate from "./components/AgeGate";
@@ -50,10 +49,15 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="bg-sky-blue">
-      <Script id="gtm" strategy="beforeInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KW2H37S6');`}</Script>
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
+      <head>
+        {/* GTM: must load as high as possible in <head> */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KW2H37S6');`,
+          }}
+        />
+      </head>
+      <body className={`${poppins.variable} antialiased`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KW2H37S6"
