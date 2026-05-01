@@ -11,7 +11,7 @@ function ProductCategory({ name, image, href }: ProductData) {
   const isExternal = href.startsWith("http");
 
   const circle = (
-    <div className="rounded-full size-[165px] relative overflow-hidden bg-parchment md:bg-white p-4">
+    <div className="rounded-full size-[165px] relative overflow-hidden bg-white p-4">
       <Image src={image} alt={name} fill sizes="165px" className="object-contain p-4" />
     </div>
   );
