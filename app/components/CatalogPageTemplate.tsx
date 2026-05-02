@@ -23,7 +23,7 @@ export default function CatalogPageTemplate({ entry }: Props) {
 
       {entry.body && (
         <div
-          className="font-poppins-regular text-[18px] text-dark-green leading-[1.6]"
+          className="font-poppins-regular text-[18px] text-dark-green leading-[1.6] [&_p]:mb-6 [&_p:last-child]:mb-0"
           dangerouslySetInnerHTML={{ __html: entry.body }}
         />
       )}
