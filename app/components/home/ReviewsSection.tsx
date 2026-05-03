@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 
-const GOOGLE_REVIEW_URL =
+const WRITE_REVIEW_LINK =
   "https://search.google.com/local/writereview?placeid=ChIJrQjHvHYzs1IRgEbpaU30vFE";
+const GOOGLE_REVIEWS_URL = "https://search.google.com/local/reviews?placeid=ChIJrQjHvHYzs1IRgEbpaU30vFE"
 
 type Review = {
   author: string;
@@ -45,7 +46,7 @@ export default function ReviewsSection() {
       </h2>
 
       <a
-        href={GOOGLE_REVIEW_URL}
+        href={GOOGLE_REVIEWS_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="bg-white rounded-[20px] px-8 md:px-9 py-8 md:py-9 w-full max-w-[608px] text-left block"
@@ -73,7 +74,7 @@ export default function ReviewsSection() {
         </button>
 
         <a
-          href={GOOGLE_REVIEW_URL}
+          href={WRITE_REVIEW_LINK}
           target="_blank"
           rel="noopener noreferrer"
           className="bg-light-gold text-dark-green font-poppins-semibold uppercase text-base px-6 py-5 rounded-full hover:opacity-90 transition-opacity text-center flex-1 max-w-[404px]"

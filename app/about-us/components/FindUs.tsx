@@ -1,8 +1,5 @@
+import { APPLE_MAPS_URL, GOOGLE_MAPS_URL } from "@/lib/constants";
 import Image from "next/image";
-
-const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/dir//905+N+Washington+Ave,+Minneapolis,+MN+55401/@44.9896532,-93.2826381,17z";
-const APPLE_MAPS_URL = "https://maps.apple.com/?address=905+N+Washington+Ave,+Minneapolis,+MN+55401";
 
 const HOURS = [
   "Monday: 10am-9pm",
@@ -26,7 +23,7 @@ export default function FindUs() {
         width={625}
         height={695}
         sizes="(max-width: 1024px) 100vw, 625px"
-        className="rounded-[30px] object-cover w-full lg:w-[625px] h-[257px] lg:h-[695px] shrink-0"
+        className="rounded-[30px] object-cover object-top w-full lg:w-[625px] aspect-[625/695] lg:aspect-auto lg:h-[695px] shrink-0"
       />
       <div className="flex flex-col gap-3 items-center lg:items-start w-full lg:w-[597px] py-5">
         <h2 className="font-poppins-bold text-3xl lg:text-display text-white leading-[0.9] text-center lg:text-left">

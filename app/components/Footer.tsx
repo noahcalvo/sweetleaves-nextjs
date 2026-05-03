@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { GOOGLE_MAPS_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -97,7 +98,7 @@ export default function Footer() {
           </p>
           <div className="flex flex-col items-center md:items-start">
             <a
-              href="https://maps.google.com/?q=905+N+Washington+Ave,+Minneapolis,+MN+55401"
+              href="https://maps.app.goo.gl/qdpTUHsrBr7cpnm7A"
               target="_blank"
               rel="noopener noreferrer"
               className="font-poppins-regular text-lg text-white hover:opacity-75 transition-opacity text-center md:text-left"
@@ -165,7 +166,7 @@ export default function Footer() {
         <div className="flex flex-col gap-5 items-center md:items-start">
           <div className="hidden md:block w-[429px]">
             <iframe
-              src="https://www.google.com/maps?q=905+N+Washington+Ave,+Minneapolis,+MN+55401&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps?q=Sweetleaves+North+Loop+Minneapolis&output=embed"
               title="Map to Sweetleaves"
               width={429}
               height={200}
@@ -177,7 +178,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row gap-3.5 md:gap-5 items-center md:items-end">
             <div className="flex gap-3.5 items-center">
               <a
-                href="https://www.instagram.com/sweetleaves.northloop/"
+                href="https://www.instagram.com/sweetleaves.co/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -189,7 +190,7 @@ export default function Footer() {
                 />
               </a>
               <a
-                href="https://www.google.com/maps?cid=5889851026020320896"
+                href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -226,7 +227,7 @@ export default function Footer() {
             </p>
             <p>
               &copy; {new Date().getFullYear()} Sweetleaves. All rights
-              reserved. License#MICRO-L24-000257
+              reserved. License# MICRO-L24-000257
             </p>
             <p>Privacy Policy | Terms of Use | Certificate of Analysis</p>
           </div>

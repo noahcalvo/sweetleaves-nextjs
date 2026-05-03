@@ -35,7 +35,7 @@ export default function PointsInfo() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-4 px-4 md:px-9 py-6 md:py-10">
+      <div className="flex flex-col items-center justify-center gap-4 px-4 md:px-9">
         <h2 className="font-poppins-bold text-3xl md:text-display text-dark-green text-center">
           Using Points
         </h2>
@@ -75,7 +75,7 @@ export default function PointsInfo() {
             />
             <BenefitCard
               title="Quarterly Giveaways"
-              description="Any Garden Club member who spends over $X per month is automatically entered to win tickets to local events like concerts, sports games, and shows."
+              description="Any Garden Club member who spends over $100/mo is automatically entered to win tickets to local events like concerts, sports games, and shows."
             />
           </div>
         </div>

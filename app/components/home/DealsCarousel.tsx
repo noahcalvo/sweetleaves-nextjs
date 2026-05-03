@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import type { DealSlide } from "@/lib/deals";
 
-const AUTO_ADVANCE_MS = 5000;
+const AUTO_ADVANCE_MS = 10000;
 
 interface Props {
   slides: DealSlide[];
@@ -19,7 +19,7 @@ export default function DealsCarousel({ slides }: Props) {
       setIndex((i) => (i + 1) % slides.length);
     }, AUTO_ADVANCE_MS);
     return () => clearInterval(interval);
-  }, [index, slides.length]);
+  }, [slides.length]);
 
   const next = () => setIndex((i) => (i + 1) % slides.length);
 
