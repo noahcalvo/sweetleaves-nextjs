@@ -6,7 +6,7 @@ type SimpleLink = { href: string; label: string; items?: never };
 type DropdownLink = { label: string; items: { href: string; label: string }[]; href?: never };
 export type NavItem = SimpleLink | DropdownLink;
 
-const PRODUCT_SLUGS = ["flower", "vaporizers", "pre-rolls", "edibles", "cannabis-beverages", "cbd"];
+const PRODUCT_SLUGS = ["flower", "disposable-vapes-and-carts", "pre-rolls", "edibles", "cannabis-beverages", "cbd"];
 const BRAND_SLUGS = ["sweetleaves", "rythm", "good-green", "dogwalkers", "lakeside-cannabis-co", "nebula", "grasslandz", "wyld"];
 
 function toNavItems(entries: CatalogEntry[], slugs: string[], basePath: string) {
