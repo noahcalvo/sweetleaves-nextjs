@@ -41,6 +41,7 @@ export default function Footer() {
             <Link href="/products/edibles" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Edibles</Link>
             <Link href="/products/cannabis-beverages" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">THC Drinks</Link>
             <Link href="/products/cbd" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">CBD</Link>
+            <Link href="/products/concentrates" className="font-poppins-regular text-lg text-white py-0.5 hover:opacity-75 transition-opacity text-center md:text-left">Concentrates</Link>
           </nav>
         </div>
 
