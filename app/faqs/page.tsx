@@ -21,7 +21,7 @@ export default async function FaqPage() {
       </h1>
 
       <FaqAccordion sections={sections} />
-      <CareersCard />
+      {/* <CareersCard /> */}
       <StillHaveQuestionsCard />
     </div>
   );
