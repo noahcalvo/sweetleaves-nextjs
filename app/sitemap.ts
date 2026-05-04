@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { brands } from "@/lib/brands";
 import { products } from "@/lib/products";
 
-const BASE = "https://sweetleavesnorthloop.com";
+const BASE = "https://www.sweetleavesnorthloop.com";
 
 type RouteConfig = {
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];

@@ -1,4 +1,4 @@
-const BASE = "https://sweetleavesnorthloop.com";
+const BASE = "https://www.sweetleavesnorthloop.com";
 
 export const revalidate = 3600;
 
